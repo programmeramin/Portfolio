@@ -2,12 +2,19 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
 // Components Flowbite-react
-import { Button, Navbar, TextInput } from "flowbite-react";
+import {
+  Button,
+  Navbar,
+  NavbarCollapse,
+  NavbarLink,
+  NavbarToggle,
+  TextInput,
+} from "flowbite-react";
 import Link from "next/link";
 
 // Icons
 import { Search } from "lucide-react";
-import { Sun } from 'lucide-react';
+import { Sun } from "lucide-react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -47,25 +54,47 @@ export default function RootLayout({ children }) {
             <TextInput
               type="text"
               placeholder="Search......"
-              className="hidden lg:inline"/>
-              
+              className="hidden lg:inline"
+            />
           </form>
-   
-        <div className="flex gap-2 md:order-2">
-          <Button className="w-16 h-10 hidden items-center sm:inline cursor-pointer">
-            <Sun className=''/>
-          </Button>
 
-          <Link className="self-center cursor-pointer" href="/signin">
-            <Button gradientDuoTone="purpleToPink">
-              Sign In
+          <div className="flex gap-2 md:order-2">
+            <Button className="w-16 h-10 hidden items-center sm:inline cursor-pointer">
+              <Sun className="" />
             </Button>
-          </Link>
-        </div>
 
+            <Link className="self-center cursor-pointer" href="/signin">
+              <Button>Sign In</Button>
+            </Link>
+            <NavbarToggle/>
+          </div>
+
+          <NavbarCollapse>
+            <NavbarLink>
+              <Link href="/">HOME</Link>
+            </NavbarLink>
+            <NavbarLink>
+              <Link href="/about">
+              ABOUT
+              </Link>
+            </NavbarLink>
+            <NavbarLink>
+              <Link href="/project">
+              PROJECTS
+              </Link>
+            </NavbarLink>
+            <NavbarLink>
+              <Link href="/blog">
+                BLOG
+              </Link>
+            </NavbarLink>
+            <NavbarLink>
+              <Link href="/contact">
+              CONTACT
+              </Link>
+            </NavbarLink>
+          </NavbarCollapse>
         </Navbar>
-
-        
 
         {children}
       </body>
