@@ -1,4 +1,6 @@
-export default function Projects() {
+
+
+export default function Services() {
     return (
       <>
         <div className="min-h-screen left-0 top-0 flex justify-center items-center">
