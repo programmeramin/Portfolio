@@ -77,30 +77,31 @@ export default function TechStack() {
     },
   ];
 
-    return (
-      <div className="w-full dark:bg-[#020d27] bg-white py-20 px-4">
-        <h2 className="text-center text-3xl md:text-4xl font-bold mb-6">
-          Tech <span className="text-blue-400">Stack</span>
-        </h2>
+  return (
+    <div className="w-full dark:bg-[#020d27] bg-white py-20 px-4">
+      <h2 className="text-center text-3xl md:text-4xl font-bold mb-6">
+        Tech <span className="text-blue-400">Stack</span>
+      </h2>
 
-        <p className="text-center text-gray-400 mb-12">
-          I work with modern technologies to build scalable and performant
-          applications
-        </p>
+      <p className="text-center text-gray-400 mb-12">
+        I work with modern technologies to build scalable and performant
+        applications
+      </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-6 md:px-20">
-          {tech.map((item, index) => (
-            <div
-              key={index}
-              className="bg-[#111827] border border-gray-800 rounded-xl py-10 flex flex-col items-center 
-            hover:border-blue-400 transition duration-300"
-            >
-              {item.icon}
-              <h3 className="mt-4 text-lg font-semibold">{item.title}</h3>
-              <p className="text-sm text-gray-400">{item.tag}</p>
-            </div>
-          ))}
-        </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-6 md:px-20">
+        {tech.map((item, index) => (
+          <div
+            key={index}
+            className="bg-[#111827] border border-gray-800 rounded-xl py-10 flex flex-col items-center 
+            hover:border-blue-400 transition transform-gpu hover:scale-105
+ duration-800"
+          >
+            {item.icon}
+            <h3 className="mt-4 text-lg font-semibold">{item.title}</h3>
+            <p className="text-sm text-gray-400">{item.tag}</p>
+          </div>
+        ))}
       </div>
-    );
+    </div>
+  );
 }
