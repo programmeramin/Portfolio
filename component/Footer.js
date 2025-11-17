@@ -16,7 +16,7 @@ export default function Footer() {
   const pathname = usePathname();
 
   return (
-    <footer className="bg-[#0b0f19] text-gray-300 border-t border-gray-800">
+    <footer className="dark:bg-[#0c101a] bg-gray-150  border-t border-gray-400">
       {/* Main Footer */}
       <div className="max-w-7xl mx-auto px-6 sm:px-10 py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
         {/* Left Section */}
@@ -31,15 +31,15 @@ export default function Footer() {
             </span>
           </Link>
 
-          <p className="text-md dark:text-gray-300 text-gray-900 leading-relaxed my-3">
+          <p className="text-md dark:text-gray-300 text-gray-700 leading-relaxed my-3">
             Full Stack MERN Developer passionate about creating modern,
             scalable, and interactive web applications with clean UI/UX.
           </p>
 
           {/* Social Icons */}
-          <div className="flex items-center gap-4 mt-5 text-black dark:text-gray-200">
+          <div className="flex items-center gap-4 mt-5 text-gray-800 dark:text-gray-200">
             <Link
-              href="https://linkedin.com/programmeramin"
+              href="https://linkedin.com/in/programmeramin"
               target="_blank"
               className="text-3xl hover:text-blue-500 transition"
             >
@@ -53,14 +53,14 @@ export default function Footer() {
               <FaFacebook />
             </Link>
             <Link
-              href="https://instagram.com/programmer_amin"
+              href="https://instagram.com/programmeramin_"
               target="_blank"
               className="text-3xl hover:text-blue-500 transition"
             >
               <FaInstagram />
             </Link>
             <Link
-              href="https://instagram.com/programmeramin_"
+              href="https://instagram.com/programmer_amin"
               target="_blank"
               className="text-3xl hover:text-blue-500 transition"
             >
@@ -95,9 +95,11 @@ export default function Footer() {
 
         {/* Middle Section - Quick Links */}
         <div>
-          <h3 className="text-lg font-semibold text-white mb-4">Quick Links</h3>
-          <ul className="space-y-0.75 text-md font-bold">
-            <li>
+          <h3 className="text-md font-semibold text-gray-800 dark:text-white mb-4">
+            Quick Links
+          </h3>
+          <ul className="space-y-0.75 ">
+            <li className="text-md dark:text-gray-200 text-gray-800">
               <Link
                 href="/"
                 className={`${
@@ -109,7 +111,7 @@ export default function Footer() {
                 HOME
               </Link>
             </li>
-            <li>
+            <li className="text-md dark:text-gray-200 text-gray-800">
               <Link
                 href="/about"
                 className={`${
@@ -121,7 +123,7 @@ export default function Footer() {
                 ABOUT ME
               </Link>
             </li>
-            <li>
+            <li className="text-md dark:text-gray-200 text-gray-800">
               <Link
                 href="/projects"
                 className={`${
@@ -133,7 +135,7 @@ export default function Footer() {
                 PROJECTS
               </Link>
             </li>
-            <li>
+            <li className="text-md dark:text-gray-200 text-gray-800">
               <Link
                 href="/services"
                 className={`${
@@ -146,7 +148,7 @@ export default function Footer() {
               </Link>
             </li>
 
-            <li>
+            <li className="text-md dark:text-gray-200 text-gray-800">
               <Link
                 href="/blog"
                 className={`${
@@ -159,7 +161,7 @@ export default function Footer() {
               </Link>
             </li>
 
-            <li>
+            <li className="text-md dark:text-gray-200 text-gray-800">
               <Link
                 href="/contact"
                 className={`${
@@ -180,14 +182,23 @@ export default function Footer() {
             Get In Touch
           </h3>
           <ul className="space-y-2 text-md text-gray-400">
-            <li>
-              <span className="dark:text-gray-100 text-black font-md">Email:</span> programmeraminbd@gmail.com
+            <li className="dark:text-gray-200 text-gray-800 font-medium text-md ">
+              <span className="dark:text-white text-gray-900 text-md font-md">
+                Email:
+              </span>{" "}
+              programmeraminbd@gmail.com
             </li>
-            <li>
-              <span className="dark:text-gray-100 text-black font-md">Phone:</span> +8801794861241
+            <li className="dark:text-gray-200 text-gray-800 font-medium text-md ">
+              <span className="dark:text-white text-gray-900 text-md">
+                Phone:
+              </span>{" "}
+              +8801794861241
             </li>
-            <li>
-              <span className="dark:text-gray-100 text-black font-md">Location:</span> Dhaka, Bangladesh
+            <li className="dark:text-gray-200 text-gray-800 font-medium text-md ">
+              <span className="dark:text-white text-gray-900 text-md">
+                Location:
+              </span>{" "}
+              Dhaka, Bangladesh
             </li>
           </ul>
         </div>
