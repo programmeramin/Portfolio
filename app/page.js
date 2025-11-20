@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link";
 import { FaArrowDown } from "react-icons/fa";
 import { FaArrowRightLong } from "react-icons/fa6";
@@ -11,14 +13,28 @@ import {
 import { FaXTwitter } from "react-icons/fa6";
 import Image from "next/image";
 import TechStack from "@/components/ui/page-component/techStack";
-
-
+import FeaturedProjects from "@/components/ui/page-component/projects";
+import MyServices from "@/components/ui/page-component/services";
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 
 export default function Home() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { 
+    once: true,        // একবারই animate হবে
+    margin: "-50px",   // একটু আগে থেকেই trigger
+  });
+
+
   return (
     <>
       <div className="dark:bg-[#0c101a] bg-gray-150 min-h-screen flex justify-center items-center">
-        <div className="max-w-7xl mx-auto mt-30">
+        <motion.div
+          initial={{ y: 200 }}
+          animate={{ y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="max-w-7xl mx-auto mt-30"
+        >
           {/* Column Layout */}
           <div className="flex flex-col items-center gap-6 justify-center mx-auto">
             {/* Top Button */}
@@ -60,21 +76,33 @@ export default function Home() {
             </p>
 
             <div className="flex justify-center gap-6">
-              <button className="flex gap-2 items-center text-white bg-blue-600 p-2 rounded-xl overflow-hidden cursor-pointer px-4 outline-none">
+              <motion.button
+                whileHover={{ rotate: 15, scale: 1.2 }}
+                transition={{ type: "spring", stiffness: 200 }}
+                className="flex items-center text-white gap-5 bg-gradient-to-r via-purple-700 px-5 py-2 rounded-md to-pink-600 from-indigo-700 hover:via-purple-900 hover:from-indigo-800 hover:to-pink-800 transform transition hover:scale-105 duration-500 outline-none border border-blue-500"
+              >
                 <span>
                   <FaArrowDown size={20} />
                 </span>
                 View My Work
-              </button>
-              <button className="flex items-center gap-4 dark:bg-[#080f20] p-2 px-4 border border-blue-400 rounded-2xl cursor-pointer outline-none">
+              </motion.button>
+              <motion.button
+                whileHover={{ rotate: 15, scale: 1.2 }}
+                transition={{ type: "spring", stiffness: 200 }}
+                className="flex items-center gap-4 dark:bg-[#080f20] p-2 px-4 border border-blue-400 rounded-2xl cursor-pointer outline-none"
+              >
                 <span>
                   <FaArrowRightLong />
                 </span>
                 Download CV
-              </button>
+              </motion.button>
             </div>
 
-            <div className="flex items-center gap-5 mt-2 mb-10 text-gray-800 dark:text-gray-200">
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 200 }}
+              className="flex items-center gap-5 mt-2 mb-10 text-gray-800 dark:text-gray-200"
+            >
               <Link
                 href="https://linkedin.com/in/programmeramin"
                 target="_blank"
@@ -127,15 +155,22 @@ export default function Home() {
                   <path d="M19.34 12.84h-8.45a1.12 1.12 0 0 0 0 2.24h8.45a1.12 1.12 0 0 0 0-2.24"></path>
                 </svg>
               </Link>
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* About me */}
 
       <div className="w-full dark:bg-[#070f22] bg-white py-20 px-4">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+        <motion.div
+          ref={ref}
+          initial={{ opacity: 0, y: 200 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="max-w-7xl mx-auto grid
+        lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 px-2 gap-12 items-center"
+        >
           {/* Left Image */}
           <div className="flex w-full">
             <Image
@@ -156,55 +191,69 @@ export default function Home() {
 
           {/* Right Content */}
           <div>
-            <h2 className="text-4xl font-bold text-white mb-4">
+            <h2 className="text-4xl font-bold dark:text-white text-gray-800 mb-4">
               About <span className="text-blue-400">Me</span>
             </h2>
 
-            <p className="text-gray-300 leading-relaxed mb-4">
+            <p className="dark:text-gray-300 text-gray-700 text-md font-medium leading-relaxed mb-4">
               I'm a passionate Full Stack JavaScript Developer with experience
               building modern web applications. I love turning complex problems
               into simple, beautiful, and intuitive solutions.
             </p>
 
-            <p className="text-gray-300 leading-relaxed mb-8">
+            <p className="dark:text-gray-300 text-gray-700 text-md font-medium leading-relaxed mb-8">
               When I'm not coding, you'll find me exploring new technologies,
               contributing to open-source projects, or sharing knowledge with
               the developer community.
             </p>
 
             {/* Stats Section */}
-            <div className="grid grid-cols-3 gap-6 mb-10">
-              <div className="bg-[#0d1224] border border-gray-700 p-6 rounded-xl text-center">
-                <div className="text-blue-400 text-3xl mb-2">&lt;/&gt;</div>
-                <h3 className="text-white text-xl font-bold">100+</h3>
+            <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-6 mb-10">
+              <div className="dark:bg-[#0d1224] border dark:border-gray-700 border-gray-300 p-6 rounded-xl text-center transform transition-all hover:scale-105 duration-700">
+                <div className="text-blue-500 text-3xl mb-2">&lt;/&gt;</div>
+                <h3 className="dark:text-gray-300 text-gray-800 text-xl font-bold">
+                  100+
+                </h3>
                 <p className="text-gray-400 text-sm">Projects Completed</p>
               </div>
 
-              <div className="bg-[#0d1224] border border-gray-700 p-6 rounded-xl text-center">
-                <div className="text-blue-400 text-3xl mb-2">☕</div>
-                <h3 className="text-white text-xl font-bold">1000+</h3>
+              <div className="dark:bg-[#0d1224] border dark:border-gray-700 border-gray-300 p-6 rounded-xl text-center transform transition-all hover:scale-105 duration-700">
+                <div className="text-blue-500 text-3xl mb-2">☕</div>
+                <h3 className="dark:text-gray-300 text-gray-800 text-xl font-bold">
+                  1000+
+                </h3>
                 <p className="text-gray-400 text-sm">Cups of Coffee</p>
               </div>
 
-              <div className="bg-[#0d1224] border border-gray-700 p-6 rounded-xl text-center">
-                <div className="text-blue-400 text-3xl mb-2">👥</div>
-                <h3 className="text-white text-xl font-bold">50+</h3>
+              <div className="dark:bg-[#0d1224] border dark:border-gray-700 border-gray-300 p-6 rounded-xl text-center transform transition-all hover:scale-105 duration-700">
+                <div className="text-blue-500 text-3xl mb-2">👥</div>
+                <h3 className="dark:text-gray-300 text-gray-800 text-xl font-bold">
+                  50+
+                </h3>
                 <p className="text-gray-400 text-sm">Happy Clients</p>
               </div>
             </div>
 
             {/* Button */}
-            <button className="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-xl font-semibold transition">
+            <button className="flex items-center text-white gap-5 bg-gradient-to-r via-purple-700 px-5 py-2 rounded-md to-pink-600 from-indigo-700 hover:via-purple-900 hover:from-indigo-800 hover:to-pink-800 transform transition hover:scale-105 duration-500 outline-none border border-blue-500">
               Learn More About Me →
             </button>
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* Tech Stack */}
 
       <div>
         <TechStack />
+      </div>
+
+      <div>
+        <FeaturedProjects />
+      </div>
+
+      <div>
+        <MyServices />
       </div>
     </>
   );

@@ -10,6 +10,9 @@ import {
   SiExpress,
   SiFramer,
 } from "react-icons/si";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+
 
 export default function TechStack() {
   const tech = [
@@ -77,31 +80,45 @@ export default function TechStack() {
     },
   ];
 
+   const ref = useRef(null);
+  const isInView = useInView(ref, { 
+    once: true,        // একবারই animate হবে
+    margin: "-50px",   // একটু আগে থেকেই trigger
+  });
+
   return (
-    <div className="w-full dark:bg-[#020d27] bg-white py-20 px-4">
-      <h2 className="text-center text-3xl md:text-4xl font-bold mb-6">
-        Tech <span className="text-blue-400">Stack</span>
-      </h2>
+    <motion.div ref={ref}
+      initial={{ opacity: 0, y: 200 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.8 }} className="w-full dark:bg-[#020d27] bg-white py-20 px-4">
+      <div className="container">
+        <h2 className="text-center text-3xl md:text-4xl font-bold mb-6">
+          Tech <span className="text-blue-400">Stack</span>
+        </h2>
 
-      <p className="text-center text-gray-400 mb-12">
-        I work with modern technologies to build scalable and performant
-        applications
-      </p>
+        <p className="text-center dark:text-gray-300 text-gray-900 mb-12">
+          I work with modern technologies to build scalable and performant
+          applications
+        </p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-6 md:px-20">
-        {tech.map((item, index) => (
-          <div
-            key={index}
-            className="bg-[#111827] border border-gray-800 rounded-xl py-10 flex flex-col items-center 
-            hover:border-blue-400 transition transform-gpu hover:scale-105
- duration-800"
-          >
-            {item.icon}
-            <h3 className="mt-4 text-lg font-semibold">{item.title}</h3>
-            <p className="text-sm text-gray-400">{item.tag}</p>
-          </div>
-        ))}
+        <div className="grid lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-3 gap-6 px-6">
+          {tech.map((item, index) => (
+            <div
+              key={index}
+              className="dark:bg-[#111827] border dark:border-gray-800 bg-gray-200 border-gray-400  rounded-xl py-10 flex flex-col items-center 
+            hover:border-blue-400 transition transform-gpu hover:scale-105 duration-800"
+            >
+              <span className="bg-gray-700 rounded-xl">{item.icon}</span>
+              <h3 className="mt-4 text-lg font-semibold dark:text-gray-200 text-gray-800">
+                {item.title}
+              </h3>
+              <p className="text-sm dark:text-gray-300 text-gray-800">
+                {item.tag}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
