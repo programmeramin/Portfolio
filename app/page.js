@@ -44,13 +44,13 @@ export default function Home() {
 
             {/* Title */}
             <h1 className="text-5xl  md:text-6xl lg:text-7xl font-bold text-center sm:mb-2 leading-tight">
-              <span className="block bg-gradient-to-r from-foreground via-foreground to-foreground/80 bg-clip-text text-transparent tracking-tighter">
+              <span className="block bg-gradient-to-r  from-primary via-teal-500 to-indigo-600 bg-clip-text text-transparent tracking-tighter">
                 Full-Stack
               </span>
-              <span className="block bg-gradient-to-r from-primary via-blue-500 to-purple-600 bg-clip-text text-center text-transparent tracking-widest">
+              <span className="block bg-gradient-to-l from-primary via-blue-500 to-purple-600 bg-clip-text text-center text-transparent tracking-widest">
                 JavaScript
               </span>
-              <span className="block bg-gradient-to-r from-foreground text-center via-foreground to-foreground/80 bg-clip-text text-transparent ">
+              <span className="block bg-gradient-to-r  to-green-700 from-pink-600 bg-clip-text text-transparent ">
                 Developer
               </span>
             </h1>
@@ -86,9 +86,9 @@ export default function Home() {
                 </span>
                 View My Work
               </motion.button>
-              <motion.button
-                whileHover={{ rotate: 15, scale: 1.2 }}
-                transition={{ type: "spring", stiffness: 200 }}
+             <motion.button
+                whileHover={{ rotate: 1, scale: 1.2 }}
+                transition={{ type: "spring", stiffness: 100 }}
                 className="flex items-center gap-4 dark:bg-[#080f20] p-2 px-4 border border-blue-400 rounded-2xl cursor-pointer outline-none"
               >
                 <span>
@@ -165,9 +165,9 @@ export default function Home() {
       <div className="w-full dark:bg-[#070f22] bg-white py-20 px-4">
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 200 }}
+          initial={{ opacity: 0, y: 300 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.9 }}
           className="max-w-7xl mx-auto grid
         lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 px-2 gap-12 items-center"
         >

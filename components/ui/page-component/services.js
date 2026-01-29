@@ -3,7 +3,13 @@ import { SiBackendless } from "react-icons/si";
 import { PiBatteryVerticalFullFill } from "react-icons/pi";
 import { FaArrowRightLong } from "react-icons/fa6";
 import Link from "next/link";
+import { useRef } from "react";
+import { useInView, motion } from "framer-motion";
 export default function MyServices() {
+
+  const ref = useRef(null);
+  const isInView = useInView()
+
     
   return (
     <>

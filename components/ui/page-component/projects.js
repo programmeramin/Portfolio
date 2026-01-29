@@ -1,12 +1,14 @@
 "use client";
 
+import { useInView, motion } from "framer-motion";
+import { useRef } from "react";
 import { FaArrowRight } from "react-icons/fa";
 
 export default function FeaturedProjects() {
   const projects = [
     {
       image:
-        "https://www.google.com/url?sa=i&url=https%3A%2F%2Fvocal.media%2Fjournal%2Fweb-application-development-process-by-egeneus-co&psig=AOvVaw0a1aMc1S1rqwsKQDZN4hwP&ust=1763483350579000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCJC2sMvN-ZADFQAAAAAdAAAAABAE",
+        "https://media.licdn.com/dms/image/v2/D5612AQFaII5dbQ8rEw/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1706873328047?e=2147483647&v=beta&t=-Fmq9K62vYo6CwkiH1QNdcALESIP61tMs_u4EbnNL6Q",
       title: "NextSkill (LMS)",
       desc: "An interactive learning platform with live classes, course search & filtering, and student enrollment system.",
       tags: [
@@ -23,63 +25,90 @@ export default function FeaturedProjects() {
     },
     {
       image:
-        "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.geeksforgeeks.org%2Fblogs%2Ftop-open-source-projects-for-web-developers%2F&psig=AOvVaw0a1aMc1S1rqwsKQDZN4hwP&ust=1763483350579000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCJC2sMvN-ZADFQAAAAAdAAAAABAR",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSD-fyMo8iYNr91PJ18assxinvRe80RGd6YLA&s",
       title: "NextCode (Software Agency)",
       desc: "A professional portfolio website for a software agency, featuring services, project showcases, and client feedback.",
       tags: ["Next.js", "Tailwind", "Resend", "Three.js", "Framer"],
     },
     {
       image:
-        "https://www.google.com/url?sa=i&url=https%3A%2F%2Ftheninehertz.com%2Fblog%2Fbest-ideas%2Fweb-app-ideas&psig=AOvVaw0a1aMc1S1rqwsKQDZN4hwP&ust=1763483350579000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCJC2sMvN-ZADFQAAAAAdAAAAABAK",
+        "https://www.shutterstock.com/image-photo/new-email-notification-concept-business-260nw-2460973799.jpg",
       title: "Business Mail USA (News Portal)",
       desc: "A dynamic business news portal providing real-time updates and financial insights with CMS integration.",
       tags: ["Next.js", "Tailwind", "Server Actions", "Zod", "React Hook Form"],
     },
   ];
 
+  const ref = useRef(null);
+  const isInView = useInView(ref, {
+    once: true,
+    margin: "-50px",
+  });
+
   return (
     <>
       <div className="w-full py-20 dark:bg-[#0B1120] text-white">
         {/* Heading */}
-        <h2 className="text-center text-3xl md:text-4xl font-bold">
-          Featured <span className="text-blue-400">Projects</span>
-        </h2>
-        <p className="text-center dark:text-gray-400 text-gray-800 text-md font-medium mt-2 mb-12">
-          Here are some of my recent projects that showcase my skills and
-          expertise
-        </p>
+        <motion.div
+          ref={ref}
+          initial={{ opacity: 0, y: 200 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 200 }}
+          transition={{ duration: 0.8 }}
+          className="w-full max-w-4xl mx-auto px-4 text-center mb-12"
+        >
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-gray-100">
+            Featured <span className="text-blue-400">Projects</span>
+          </h2>
+
+          <p className="mt-2 sm:mt-4 text-gray-700 dark:text-gray-300 text-md sm:text-lg md:text-xl font-medium leading-relaxed">
+            Here are some of my recent projects that showcase my skills and
+            expertise.
+          </p>
+        </motion.div>
 
         {/* Project Cards */}
         <div className="grid lg:grid-cols-2 md:grid-cols-1 gap-8 px-6">
           {projects.map((item, index) => (
-            <div
+            <motion.div
               key={index}
-              className="bg-[#111827] rounded-xl border border-transparent hover:border-blue-400 transition-all 
-            duration-300 overflow-hidden flex flex-col"
+              initial={{ opacity: 0, y: 300 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+              transition={{ duration: 1, delay: index * 0.2 }}
+              key={index}
+              className="dark:bg-[#111827] bg-white  rounded-xl border border-transparent hover:border-blue-400 transition-all 
+            overflow-hidden flex flex-col transform duration-700 hover:scale-105"
             >
               <img
                 src={item.image}
                 alt={item.title}
-                className="w-full h-48 transform duration-800 hover:scale-105"
+                className="w-full h-48 transform duration-800 hover:scale-115"
               />
+              <div className="p-6 rounded-xl bg-white dark:bg-[#1F2937] shadow-md dark:shadow-lg transition-colors duration-300">
+                {/* Title */}
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-200">
+                  {item.title}
+                </h3>
 
-              <div className="p-6">
-                <h3 className="text-xl font-semibold">{item.title}</h3>
+                {/* Description */}
+                <p className="mt-2 mb-4 text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                  {item.desc}
+                </p>
 
-                <p className="text-gray-400 text-sm mt-2 mb-4">{item.desc}</p>
-
+                {/* Tags */}
                 <div className="flex flex-wrap gap-2">
                   {item.tags.map((tag, i) => (
                     <span
                       key={i}
-                      className="text-xs px-3 py-1 bg-[#1F2937] text-gray-300 rounded-full border border-gray-700"
+                      className="text-xs px-3 py-1 rounded-full border transition-colors duration-300
+          bg-gray-200 text-gray-800 border-gray-300
+          dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
