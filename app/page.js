@@ -255,6 +255,46 @@ export default function Home() {
       <div>
         <MyServices />
       </div>
+
+ {/* ready to start project */}
+
+      <motion.div ref={ref}  initial={{ opacity: 0, y: 200 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 200 }}
+              transition={{ duration: 0.8, delay: 0.8 }} className="w-full bg-white dark:bg-[#020d23] py-20 flex flex-col items-center text-center px-4 transition-colors duration-300">
+        {/* Heading */}
+        <h1 className="text-black dark:text-white text-3xl md:text-5xl font-bold mb-4">
+          Ready to Start Your{" "}
+          <span className="text-blue-600 dark:text-blue-500">Project</span>?
+        </h1>
+
+        {/* Sub Text */}
+        <p className="text-gray-700 dark:text-gray-400 max-w-2xl mb-8 text-sm md:text-base">
+          Let's work together to bring your ideas to life. I'm always excited to
+          take on new challenges and create amazing digital experiences.
+        </p>
+
+        {/* Buttons */}
+        <div className="flex gap-4">
+          {/* Get in Touch Button */}
+          <button className="flex items-center text-white gap-5 bg-gradient-to-r via-purple-700 px-5 py-2 rounded-md to-pink-600 from-indigo-700 hover:via-purple-900 hover:from-indigo-800 hover:to-pink-800 transform transition hover:scale-105 duration-500">
+            <Link href="/contact" className="">
+              Get In Touch ➜
+            </Link>
+          </button>
+
+          {/* Send Email Button */}
+          <Link
+            href="mailto:youremail@example.com"
+            className="border border-gray-400 dark:border-gray-600 
+                 text-gray-700 dark:text-gray-300 
+                 hover:bg-gray-100 dark:hover:bg-[#0d1a33] 
+                 transition px-6 py-3 rounded-xl flex items-center gap-2"
+          >
+            ✉️ Send Email
+          </Link>
+        </div>
+      </motion.div>
+
     </>
   );
 }

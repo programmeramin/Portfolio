@@ -1,6 +1,6 @@
 "use client";
 
-import * as React from "react";
+import  React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -63,7 +63,7 @@ export default function Navbar() {
             size="icon"
             onClick={toggleTheme}
             className="relative transition-none ml-4"
-          >
+          >    
             {/* Sun Icon */}
             <IoIosSunny
               className={`h-[1.2rem] w-[1.2rem] transition-transform ${
