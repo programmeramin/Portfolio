@@ -157,7 +157,7 @@ const AboutMe = () => {
             </motion.button>
           </motion.div>
         </div>
-
+    
         {/* Stats Section */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
