@@ -99,7 +99,7 @@ export default function Footer() {
             Quick Links
           </h3>
           <ul className="space-y-0.75 ">
-            <li className="text-md dark:text-gray-200 text-gray-800">
+            <li className="text-sm dark:text-gray-200 text-gray-800">
               <Link
                 href="/"
                 className={`${
@@ -111,7 +111,7 @@ export default function Footer() {
                 HOME
               </Link>
             </li>
-            <li className="text-md dark:text-gray-200 text-gray-800">
+            <li className="text-sm dark:text-gray-200 text-gray-800">
               <Link
                 href="/about"
                 className={`${
@@ -123,7 +123,7 @@ export default function Footer() {
                 ABOUT ME
               </Link>
             </li>
-            <li className="text-md dark:text-gray-200 text-gray-800">
+            <li className="text-sm dark:text-gray-200 text-gray-800">
               <Link
                 href="/projects"
                 className={`${
@@ -135,7 +135,7 @@ export default function Footer() {
                 PROJECTS
               </Link>
             </li>
-            <li className="text-md dark:text-gray-200 text-gray-800">
+            <li className="text-sm dark:text-gray-200 text-gray-800">
               <Link
                 href="/services"
                 className={`${
@@ -148,7 +148,7 @@ export default function Footer() {
               </Link>
             </li>
 
-            <li className="text-md dark:text-gray-200 text-gray-800">
+            <li className="text-sm dark:text-gray-200 text-gray-800">
               <Link
                 href="/blog"
                 className={`${
@@ -161,7 +161,7 @@ export default function Footer() {
               </Link>
             </li>
 
-            <li className="text-md dark:text-gray-200 text-gray-800">
+            <li className="text-sm dark:text-gray-200 text-gray-800">
               <Link
                 href="/contact"
                 className={`${

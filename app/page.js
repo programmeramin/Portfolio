@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Link from "next/link";
 import { FaArrowDown } from "react-icons/fa";
@@ -20,16 +20,22 @@ import { motion, useInView } from "framer-motion";
 
 export default function Home() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { 
-    once: true,        // একবারই animate হবে
-    margin: "-50px",   // একটু আগে থেকেই trigger
+  const isInView = useInView(ref, {
+    once: true, // একবারই animate হবে
+    margin: "-50px", // একটু আগে থেকেই trigger
   });
 
+  const aboutRef = useRef(null);
+  const aboutInView = useInView(aboutRef, {
+    once: true,
+    margin: "-100px", // একটু আগেই trigger হবে
+  });
 
   return (
     <>
       <div className="dark:bg-[#0c101a] bg-gray-150 min-h-screen flex justify-center items-center">
         <motion.div
+          ref={ref}
           initial={{ y: 200 }}
           animate={{ y: 0 }}
           transition={{ duration: 0.8 }}
@@ -86,7 +92,7 @@ export default function Home() {
                 </span>
                 View My Work
               </motion.button>
-             <motion.button
+              <motion.button
                 whileHover={{ rotate: 1, scale: 1.2 }}
                 transition={{ type: "spring", stiffness: 100 }}
                 className="flex items-center gap-4 dark:bg-[#080f20] p-2 px-4 border border-blue-400 rounded-2xl cursor-pointer outline-none"
@@ -161,18 +167,21 @@ export default function Home() {
       </div>
 
       {/* About me */}
-
-      <div className="w-full dark:bg-[#070f22] bg-white py-20 px-4">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 300 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.9 }}
+      <div
+        ref={aboutRef}
+        className="w-full dark:bg-[#070f22] bg-white py-20 px-4"
+      >
+        <div
           className="max-w-7xl mx-auto grid
-        lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 px-2 gap-12 items-center"
+    lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 px-2 gap-12 items-center"
         >
-          {/* Left Image */}
-          <div className="flex w-full">
+          {/* Left Image — from LEFT */}
+          <motion.div
+            initial={{ opacity: 0, x: -150 }}
+            animate={aboutInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.9, ease: "easeOut" }}
+            className="flex w-full"
+          >
             <Image
               src="/image/my-photo.png"
               alt="Profile"
@@ -185,61 +194,58 @@ export default function Home() {
               alt="Profile"
               width={350}
               height={400}
-              className=" overflow-hidden mr-20 rounded-r-2xl"
+              className="overflow-hidden mr-20 rounded-r-2xl"
             />
-          </div>
+          </motion.div>
 
-          {/* Right Content */}
-          <div>
+          {/* Right Content — from RIGHT */}
+          <motion.div
+            initial={{ opacity: 0, x: 150 }}
+            animate={aboutInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.9, ease: "easeOut", delay: 0.2 }}
+          >
             <h2 className="text-4xl font-bold dark:text-white text-gray-800 mb-4">
               About <span className="text-blue-400">Me</span>
             </h2>
 
             <p className="dark:text-gray-300 text-gray-700 text-md font-medium leading-relaxed mb-4">
               I'm a passionate Full Stack JavaScript Developer with experience
-              building modern web applications. I love turning complex problems
-              into simple, beautiful, and intuitive solutions.
+              building modern web applications.
             </p>
 
             <p className="dark:text-gray-300 text-gray-700 text-md font-medium leading-relaxed mb-8">
-              When I'm not coding, you'll find me exploring new technologies,
-              contributing to open-source projects, or sharing knowledge with
-              the developer community.
+              When I'm not coding, you'll find me exploring new technologies and
+              contributing to open-source projects.
             </p>
 
-            {/* Stats Section */}
+            {/* Stats */}
             <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-6 mb-10">
-              <div className="dark:bg-[#0d1224] border dark:border-gray-700 border-gray-300 p-6 rounded-xl text-center transform transition-all hover:scale-105 duration-700">
-                <div className="text-blue-500 text-3xl mb-2">&lt;/&gt;</div>
-                <h3 className="dark:text-gray-300 text-gray-800 text-xl font-bold">
-                  100+
-                </h3>
-                <p className="text-gray-400 text-sm">Projects Completed</p>
-              </div>
-
-              <div className="dark:bg-[#0d1224] border dark:border-gray-700 border-gray-300 p-6 rounded-xl text-center transform transition-all hover:scale-105 duration-700">
-                <div className="text-blue-500 text-3xl mb-2">☕</div>
-                <h3 className="dark:text-gray-300 text-gray-800 text-xl font-bold">
-                  1000+
-                </h3>
-                <p className="text-gray-400 text-sm">Cups of Coffee</p>
-              </div>
-
-              <div className="dark:bg-[#0d1224] border dark:border-gray-700 border-gray-300 p-6 rounded-xl text-center transform transition-all hover:scale-105 duration-700">
-                <div className="text-blue-500 text-3xl mb-2">👥</div>
-                <h3 className="dark:text-gray-300 text-gray-800 text-xl font-bold">
-                  50+
-                </h3>
-                <p className="text-gray-400 text-sm">Happy Clients</p>
-              </div>
+              {[
+                { icon: "</>", value: "100+", label: "Projects Completed" },
+                { icon: "☕", value: "1000+", label: "Cups of Coffee" },
+                { icon: "👥", value: "50+", label: "Happy Clients" },
+              ].map((item, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 40 }}
+                  animate={aboutInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.6, delay: 0.4 + i * 0.15 }}
+                  className="dark:bg-[#0d1224] border dark:border-gray-700 border-gray-300 p-6 rounded-xl text-center hover:scale-105 transition duration-500"
+                >
+                  <div className="text-blue-500 text-3xl mb-2">{item.icon}</div>
+                  <h3 className="dark:text-gray-300 text-gray-800 text-xl font-bold">
+                    {item.value}
+                  </h3>
+                  <p className="text-gray-400 text-sm">{item.label}</p>
+                </motion.div>
+              ))}
             </div>
 
-            {/* Button */}
-            <button className="flex items-center text-white gap-5 bg-gradient-to-r via-purple-700 px-5 py-2 rounded-md to-pink-600 from-indigo-700 hover:via-purple-900 hover:from-indigo-800 hover:to-pink-800 transform transition hover:scale-105 duration-500 outline-none border border-blue-500">
+            <button className="flex items-center text-white gap-5 bg-gradient-to-r via-purple-700 px-5 py-2 rounded-md to-pink-600 from-indigo-700 hover:scale-105 transition duration-500 border border-blue-500">
               Learn More About Me →
             </button>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
 
       {/* Tech Stack */}
@@ -256,11 +262,15 @@ export default function Home() {
         <MyServices />
       </div>
 
- {/* ready to start project */}
+      {/* ready to start project */}
 
-      <motion.div ref={ref}  initial={{ opacity: 0, y: 200 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 200 }}
-              transition={{ duration: 0.8, delay: 0.8 }} className="w-full bg-white dark:bg-[#020d23] py-20 flex flex-col items-center text-center px-4 transition-colors duration-300">
+      <motion.div
+        ref={ref}
+        initial={{ opacity: 0, y: 200 }}
+        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 200 }}
+        transition={{ duration: 0.8, delay: 0.6 }}
+        className="w-full bg-white dark:bg-[#020d23] py-20 flex flex-col items-center text-center px-4 transition-colors duration-300"
+      >
         {/* Heading */}
         <h1 className="text-black dark:text-white text-3xl md:text-5xl font-bold mb-4">
           Ready to Start Your{" "}
@@ -294,7 +304,6 @@ export default function Home() {
           </Link>
         </div>
       </motion.div>
-
     </>
   );
 }
