@@ -98,13 +98,13 @@ export default function TechStack() {
             Tech <span className="text-blue-400">Stack</span>
           </h2>
 
-          <p className="text-center dark:text-gray-300 text-gray-900 mb-12">
+          <p className="text-center text-xl lg:text-2xl md:text-xl dark:text-gray-300 text-gray-900 mb-12">
             I work with modern technologies to build scalable and performant
             applications
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-3 gap-6 px-6">
+        <div className="grid lg:grid-cols-4 grid-cols-1 md:grid-cols-3 gap-6">
           {tech.map((item, index) => (
             <motion.div
               key={index}

@@ -62,31 +62,31 @@ export default function Home() {
             </h1>
 
             {/* Subtitle */}
-           <p
-  className="text-center text-xl xs:text-lg lg:text-3xl md:text-2xl text-muted-foreground max-w-3xl px-2 leading-relaxed"
-  style={{ opacity: 1, transform: "none" }}
->
-  I build modern,{" "}
-  <span
-    className="font-semibold"
-    style={{ color: "rgb(81, 133, 232)" }}
-  >
-    scalable, and production-ready
-  </span>{" "}
-  web applications using React, Next.js, Node.js, and MongoDB—focusing on clean
-  architecture, performance, and real-world impact while exploring{" "}
-  <span className="text-blue-500 text-md md:text-xl lg:text-2xl font-semibold uppercase">
-    AI-powered experiences.
-  </span>
-</p>
-
+            <p
+              className="text-center text-xl xs:text-lg lg:text-3xl md:text-2xl text-muted-foreground max-w-3xl px-2 leading-relaxed"
+              style={{ opacity: 1, transform: "none" }}
+            >
+              I build modern,{" "}
+              <span
+                className="font-semibold"
+                style={{ color: "rgb(81, 133, 232)" }}
+              >
+                scalable, and production-ready
+              </span>{" "}
+              web applications using React, Next.js, Node.js, and
+              MongoDB—focusing on clean architecture, performance, and
+              real-world impact while exploring{" "}
+              <span className="text-blue-500 text-md md:text-xl lg:text-2xl font-semibold uppercase">
+                AI-powered experiences.
+              </span>
+            </p>
 
             <div className="flex justify-center gap-6">
-             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mt-6">
-  <motion.button
-    whileHover={{ rotate: 15, scale: 1.1 }}
-    transition={{ type: "spring", stiffness: 200 }}
-    className="
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mt-6">
+                <motion.button
+                  whileHover={{ rotate: 15, scale: 1.1 }}
+                  transition={{ type: "spring", stiffness: 200 }}
+                  className="
       flex items-center justify-center
       text-white gap-3
       bg-gradient-to-r from-indigo-700 via-purple-700 to-pink-600
@@ -100,15 +100,15 @@ export default function Home() {
       outline-none border border-blue-500
       w-full sm:w-auto
     "
-  >
-    <FaArrowDown size={18} className="sm:size-[20px]" />
-    View My Work
-  </motion.button>
+                >
+                  <FaArrowDown size={18} className="sm:size-[20px]" />
+                  View My Work
+                </motion.button>
 
-  <motion.button
-    whileHover={{ rotate: 1, scale: 1.1 }}
-    transition={{ type: "spring", stiffness: 120 }}
-    className="
+                <motion.button
+                  whileHover={{ rotate: 1, scale: 1.1 }}
+                  transition={{ type: "spring", stiffness: 120 }}
+                  className="
       flex items-center justify-center gap-3
       dark:bg-[#080f20]
       bg-white
@@ -121,12 +121,11 @@ export default function Home() {
       cursor-pointer outline-none
       w-full sm:w-auto
     "
-  >
-    <FaArrowRightLong />
-    Download CV
-  </motion.button>
-</div>
-
+                >
+                  <FaArrowRightLong />
+                  Download CV
+                </motion.button>
+              </div>
             </div>
 
             <motion.div
@@ -197,8 +196,8 @@ export default function Home() {
         className="w-full dark:bg-[#0c101a] bg-white py-20 px-4"
       >
         <div
-          className="max-w-7xl mx-auto grid
-    lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 px-2 gap-12 items-center"
+          className="container max-w-7xl mx-auto grid
+    lg:grid-cols-2 md:grid-cols-1 grid-cols-1 px-2 gap-12 items-center"
         >
           {/* Left Image — from LEFT */}
           <motion.div

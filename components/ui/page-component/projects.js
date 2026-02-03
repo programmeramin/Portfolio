@@ -54,7 +54,7 @@ export default function FeaturedProjects() {
           initial={{ opacity: 0, y: 200 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 200 }}
           transition={{ duration: 0.8 }}
-          className="w-full max-w-4xl mx-auto px-4 text-center mb-12"
+          className="container w-full max-w-4xl mx-auto px-4 text-center mb-12"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-gray-100">
             Featured <span className="text-blue-400">Projects</span>
