@@ -14,9 +14,6 @@ import {
   Mail,
   Phone,
   MapPin,
-  Github,
-  Linkedin,
-  Twitter,
 } from "lucide-react";
 
 export default function Footer() {

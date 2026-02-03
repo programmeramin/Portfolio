@@ -62,7 +62,7 @@ export default function Navbar() {
             variant="outline"
             size="icon"
             onClick={toggleTheme}
-            className="relative transition-none ml-4"
+            className="relative transition-none ml-4 cursor-pointer"
           >    
             {/* Sun Icon */}
             <IoIosSunny

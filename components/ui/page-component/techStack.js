@@ -111,7 +111,7 @@ export default function TechStack() {
               initial={{ opacity: 0, y: 100 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
-              className="dark:bg-[#111827] border dark:border-gray-800 bg-gray-200 border-gray-400 rounded-xl py-10 flex flex-col items-center hover:border-blue-400 transition transform-gpu hover:scale-105 duration-800"
+              className="dark:bg-[#111827] border dark:border-gray-800 bg-gray-200 border-gray-400 rounded-xl py-10 flex flex-col items-center hover:border-blue-400 transition transform-gpu hover:scale-105 duration-800 cursor-pointer"
             >
               <span className="bg-gray-700 rounded-xl p-4">{item.icon}</span>
               <h3 className="mt-4 text-lg font-semibold dark:text-gray-200 text-gray-800">

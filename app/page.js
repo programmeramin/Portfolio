@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { FaArrowDown } from "react-icons/fa";
 import { FaArrowRightLong } from "react-icons/fa6";
+import { Typewriter } from "react-simple-typewriter";
 import {
   FaLinkedin,
   FaFacebook,
@@ -49,21 +50,23 @@ export default function Home() {
             </button>
 
             {/* Title */}
-            <h1 className="text-4xl  md:text-5xl lg:text-6xl font-bold text-center sm:mb-2 leading-tight">
-              <span className="block bg-gradient-to-r  from-primary via-teal-500 to-indigo-600 bg-clip-text text-transparent tracking-tighter">
-                Full-Stack
-              </span>
-              <span className="block bg-gradient-to-l from-primary via-blue-500 to-purple-600 bg-clip-text text-center text-transparent tracking-widest">
-                JavaScript
-              </span>
-              <span className="block bg-gradient-to-r  to-green-700 from-pink-600 bg-clip-text text-transparent ">
-                Developer
-              </span>
+            <h1
+              className="text-2xl md:text-3xl lg:text-4xl font-bold text-center leading-tight bg-gradient-to-r from-primary via-blue-500 to-purple-600 bg-clip-text text-transparent tracking-tight"
+            >
+              <Typewriter
+                words={["Full Stack MERN Developer | AI/ML-Focused"]}
+                loop={0}
+                cursor
+                cursorStyle="|"
+                typeSpeed={80}
+                deleteSpeed={60}
+                delaySpeed={1500}
+              />
             </h1>
 
             {/* Subtitle */}
             <p
-              className="text-center text-xl xs:text-lg lg:text-3xl md:text-2xl text-muted-foreground max-w-3xl px-2 leading-relaxed"
+              className="text-center text-medium xs:text-lg lg:text-2xl md:text-xl text-muted-foreground max-w-3xl px-2 leading-relaxed"
               style={{ opacity: 1, transform: "none" }}
             >
               I build modern,{" "}
@@ -98,7 +101,7 @@ export default function Home() {
       rounded-md
       transform transition duration-500
       outline-none border border-blue-500
-      w-full sm:w-auto
+      w-full sm:w-auto cursor-pointer
     "
                 >
                   <FaArrowDown size={18} className="sm:size-[20px]" />
@@ -233,13 +236,11 @@ export default function Home() {
             </h2>
 
             <p className="dark:text-gray-300 text-gray-700 text-md font-medium leading-relaxed mb-4">
-              I'm a passionate Full Stack JavaScript Developer with experience
-              building modern web applications.
+              I’m a passionate Full Stack MERN Developer with experience building modern, scalable, and high-performance web applications, combining clean frontend interfaces with robust backend systems.
             </p>
 
             <p className="dark:text-gray-300 text-gray-700 text-md font-medium leading-relaxed mb-8">
-              When I'm not coding, you'll find me exploring new technologies and
-              contributing to open-source projects.
+             When I’m not coding, I explore emerging technologies, contribute to open-source projects, and continuously upskill in AI and machine learning to create smarter web solutions.
             </p>
 
             {/* Stats */}
@@ -265,7 +266,7 @@ export default function Home() {
               ))}
             </div>
 
-            <button className="flex items-center text-white gap-5 bg-gradient-to-r via-purple-700 px-5 py-2 rounded-md to-pink-600 from-indigo-700 hover:scale-105 transition duration-500 border border-blue-500">
+            <button className="flex items-center text-white gap-5 bg-gradient-to-r via-purple-700 px-5 py-2 rounded-md to-pink-600 from-indigo-700 hover:scale-105 transition duration-500 border border-blue-500 cursor-pointer">
               Learn More About Me →
             </button>
           </motion.div>
