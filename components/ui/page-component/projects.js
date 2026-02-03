@@ -47,7 +47,7 @@ export default function FeaturedProjects() {
 
   return (
     <>
-      <div className="w-full py-20 dark:bg-[#0B1120] text-white">
+      <div className="w-full py-20 dark:bg-[#0c101a] text-white">
         {/* Heading */}
         <motion.div
           ref={ref}

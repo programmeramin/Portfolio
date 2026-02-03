@@ -49,7 +49,7 @@ export default function Home() {
             </button>
 
             {/* Title */}
-            <h1 className="text-5xl  md:text-6xl lg:text-7xl font-bold text-center sm:mb-2 leading-tight">
+            <h1 className="text-4xl  md:text-5xl lg:text-6xl font-bold text-center sm:mb-2 leading-tight">
               <span className="block bg-gradient-to-r  from-primary via-teal-500 to-indigo-600 bg-clip-text text-transparent tracking-tighter">
                 Full-Stack
               </span>
@@ -62,46 +62,71 @@ export default function Home() {
             </h1>
 
             {/* Subtitle */}
-            <p
-              className="text-center text-2xl xs:text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-3xl px-2 leading-relaxed"
-              style={{ opacity: 1, transform: "none" }}
-            >
-              I build modern,{" "}
-              <span
-                className="font-semibold"
-                style={{ color: "rgb(81, 133, 232)" }}
-              >
-                scalable, and high-performance
-              </span>{" "}
-              web applications using React, Next.js, Node.js, and the latest
-              technologies—turning ideas into exceptional{" "}
-              <span className="text-blue-500 font-semibold uppercase">
-                digital experiences.
-              </span>{" "}
-              together.
-            </p>
+           <p
+  className="text-center text-xl xs:text-lg lg:text-3xl md:text-2xl text-muted-foreground max-w-3xl px-2 leading-relaxed"
+  style={{ opacity: 1, transform: "none" }}
+>
+  I build modern,{" "}
+  <span
+    className="font-semibold"
+    style={{ color: "rgb(81, 133, 232)" }}
+  >
+    scalable, and production-ready
+  </span>{" "}
+  web applications using React, Next.js, Node.js, and MongoDB—focusing on clean
+  architecture, performance, and real-world impact while exploring{" "}
+  <span className="text-blue-500 text-md md:text-xl lg:text-2xl font-semibold uppercase">
+    AI-powered experiences.
+  </span>
+</p>
+
 
             <div className="flex justify-center gap-6">
-              <motion.button
-                whileHover={{ rotate: 15, scale: 1.2 }}
-                transition={{ type: "spring", stiffness: 200 }}
-                className="flex items-center text-white gap-5 bg-gradient-to-r via-purple-700 px-5 py-2 rounded-md to-pink-600 from-indigo-700 hover:via-purple-900 hover:from-indigo-800 hover:to-pink-800 transform transition hover:scale-105 duration-500 outline-none border border-blue-500"
-              >
-                <span>
-                  <FaArrowDown size={20} />
-                </span>
-                View My Work
-              </motion.button>
-              <motion.button
-                whileHover={{ rotate: 1, scale: 1.2 }}
-                transition={{ type: "spring", stiffness: 100 }}
-                className="flex items-center gap-4 dark:bg-[#080f20] p-2 px-4 border border-blue-400 rounded-2xl cursor-pointer outline-none"
-              >
-                <span>
-                  <FaArrowRightLong />
-                </span>
-                Download CV
-              </motion.button>
+             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mt-6">
+  <motion.button
+    whileHover={{ rotate: 15, scale: 1.1 }}
+    transition={{ type: "spring", stiffness: 200 }}
+    className="
+      flex items-center justify-center
+      text-white gap-3
+      bg-gradient-to-r from-indigo-700 via-purple-700 to-pink-600
+      hover:from-indigo-800 hover:via-purple-900 hover:to-pink-800
+      px-4 py-2
+      sm:px-5 sm:py-2.5
+      md:px-6 md:py-3
+      text-sm sm:text-base md:text-lg
+      rounded-md
+      transform transition duration-500
+      outline-none border border-blue-500
+      w-full sm:w-auto
+    "
+  >
+    <FaArrowDown size={18} className="sm:size-[20px]" />
+    View My Work
+  </motion.button>
+
+  <motion.button
+    whileHover={{ rotate: 1, scale: 1.1 }}
+    transition={{ type: "spring", stiffness: 120 }}
+    className="
+      flex items-center justify-center gap-3
+      dark:bg-[#080f20]
+      bg-white
+      py-2 px-4
+      sm:px-5 sm:py-2.5
+      md:px-6 md:py-3
+      text-sm sm:text-base md:text-lg
+      border border-blue-400
+      rounded-2xl
+      cursor-pointer outline-none
+      w-full sm:w-auto
+    "
+  >
+    <FaArrowRightLong />
+    Download CV
+  </motion.button>
+</div>
+
             </div>
 
             <motion.div
@@ -169,7 +194,7 @@ export default function Home() {
       {/* About me */}
       <div
         ref={aboutRef}
-        className="w-full dark:bg-[#070f22] bg-white py-20 px-4"
+        className="w-full dark:bg-[#0c101a] bg-white py-20 px-4"
       >
         <div
           className="max-w-7xl mx-auto grid
@@ -269,7 +294,7 @@ export default function Home() {
         initial={{ opacity: 0, y: 200 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 200 }}
         transition={{ duration: 0.8, delay: 0.6 }}
-        className="w-full bg-white dark:bg-[#020d23] py-20 flex flex-col items-center text-center px-4 transition-colors duration-300"
+        className="w-full bg-white dark:bg-[#0c101a] py-20 flex flex-col items-center text-center px-4 transition-colors duration-300"
       >
         {/* Heading */}
         <h1 className="text-black dark:text-white text-3xl md:text-5xl font-bold mb-4">

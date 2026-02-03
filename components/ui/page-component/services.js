@@ -17,7 +17,7 @@ export default function MyServices() {
 
   return (
     <>
-      <div className="w-full py-20 dark:bg-[#040f2b] bg-white justify-center items-center">
+      <div className="w-full py-20 dark:bg-[#0c101a] bg-white justify-center items-center">
         <div className="container mx-auto w-full ">
           <motion.div
             ref={ref}

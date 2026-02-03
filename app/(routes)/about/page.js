@@ -3,6 +3,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Code2, Coffee, Users, Award, Zap, Heart } from 'lucide-react';
+import Image from 'next/image';
 
 const AboutMe = () => {
   const aboutRef = useRef(null);
@@ -75,22 +76,20 @@ const AboutMe = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl blur-2xl opacity-30 animate-pulse"></div>
               <div className="relative flex gap-4">
-                <img
-                  src="/image/my-photo.png"
-                  alt="Profile"
-                  className="w-48 h-64 object-cover rounded-l-2xl shadow-2xl"
-                  onError={(e) => {
-                    e.currentTarget.src = 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400';
-                  }}
-                />
-                <img
-                  src="/image/my-cover.png"
-                  alt="Cover"
-                  className="w-48 h-64 object-cover rounded-r-2xl shadow-2xl"
-                  onError={(e) => {
-                    e.currentTarget.src = 'https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=400';
-                  }}
-                />
+                <Image
+                              src="/image/my-photo.png"
+                              alt="Profile"
+                              width={350}
+                              height={400}
+                              className="overflow-hidden rounded-l-2xl"
+                            />
+                            <Image
+                              src="/image/my-cover.png"
+                              alt="Profile"
+                              width={350}
+                              height={400}
+                              className="overflow-hidden mr-20 rounded-r-2xl"
+                            />
               </div>
             </div>
           </motion.div>

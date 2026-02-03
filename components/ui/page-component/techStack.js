@@ -86,7 +86,7 @@ export default function TechStack() {
   });
 
   return (
-    <div className="w-full dark:bg-[#020d27] bg-white py-20 px-4">
+    <div className="w-full dark:bg-[#0c101a] bg-white py-20 px-4">
       <div className="container mx-auto">
         <motion.div
           ref={ref}
