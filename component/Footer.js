@@ -10,6 +10,14 @@ import {
   FaEnvelope,
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Github,
+  Linkedin,
+  Twitter,
+} from "lucide-react";
 
 export default function Footer() {
 
@@ -178,30 +186,89 @@ export default function Footer() {
 
         {/* Right Section - Contact */}
         <div>
-          <h3 className="text-lg font-semibold text-white mb-4">
-            Get In Touch
-          </h3>
-          <ul className="space-y-2 text-md text-gray-400">
-            <li className="dark:text-gray-200 text-gray-800 font-medium text-md ">
-              <span className="dark:text-white text-gray-900 text-md font-md">
-                Email:
-              </span>{" "}
-              programmeraminbd@gmail.com
-            </li>
-            <li className="dark:text-gray-200 text-gray-800 font-medium text-md ">
-              <span className="dark:text-white text-gray-900 text-md">
-                Phone:
-              </span>{" "}
-              +8801794861241
-            </li>
-            <li className="dark:text-gray-200 text-gray-800 font-medium text-md ">
-              <span className="dark:text-white text-gray-900 text-md">
-                Location:
-              </span>{" "}
-              Dhaka, Bangladesh
-            </li>
-          </ul>
-        </div>
+  <h3 className="text-lg font-semibold text-white mb-4">
+    Get In Touch
+  </h3>
+
+  <ul className="space-y-3 text-gray-400">
+    <li className="flex items-center gap-3">
+      <Mail size={18} className="text-blue-500" />
+      <span className="dark:text-gray-200 text-gray-800">
+        programmeraminbd@gmail.com
+      </span>
+    </li>
+
+    <li className="flex items-center gap-3">
+      <Phone size={18} className="text-blue-500" />
+      <span className="dark:text-gray-200 text-gray-800">
+        +8801794861241
+      </span>
+    </li>
+
+    <li className="flex items-center gap-3">
+      <MapPin size={18} className="text-blue-500" />
+      <span className="dark:text-gray-200 text-gray-800">
+        Dhaka, Bangladesh
+      </span>
+    </li>
+  </ul>
+
+  {/* Social Icons */}
+   <div className="flex items-center gap-4 mt-5 text-gray-800 dark:text-gray-200">
+            <Link
+              href="https://linkedin.com/in/programmeramin"
+              target="_blank"
+              className="text-3xl hover:text-blue-500 transition"
+            >
+              <FaLinkedin />
+            </Link>
+            <Link
+              href="https://facebook.com/programmeraminislam"
+              target="_blank"
+              className="text-3xl hover:text-blue-500 transition"
+            >
+              <FaFacebook />
+            </Link>
+            <Link
+              href="https://instagram.com/programmeramin_"
+              target="_blank"
+              className="text-3xl hover:text-blue-500 transition"
+            >
+              <FaInstagram />
+            </Link>
+            <Link
+              href="https://instagram.com/programmer_amin"
+              target="_blank"
+              className="text-3xl hover:text-blue-500 transition"
+            >
+              <FaXTwitter />
+            </Link>
+            <Link
+              href="https://github.com/programmeramin"
+              target="_blank"
+              className="text-3xl hover:text-blue-500 transition"
+            >
+              <FaGithub />
+            </Link>
+
+            <Link
+              href="https://leetcode.com/programmeramin"
+              target="_blank"
+              className="text-3xl hover:text-blue-500 transition"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width={34}
+                height={34}
+                fill={"currentColor"}
+                viewBox="0 0 24 24"
+              >
+                <path d="m15.42 16.94-2.25 2.17a2.1 2.1 0 0 1-1.52.56 2.1 2.1 0 0 1-1.52-.56l-3.61-3.63a2.18 2.18 0 0 1-.58-1.55 2.07 2.07 0 0 1 .58-1.52l3.6-3.65a2.1 2.1 0 0 1 1.53-.54 2.08 2.08 0 0 1 1.52.55l2.25 2.17A1.14 1.14 0 0 0 17 9.33l-2.17-2.2a4.24 4.24 0 0 0-2-1.12l2.06-2.08a1.15 1.15 0 0 0-1.62-1.62l-8.43 8.42a4.48 4.48 0 0 0-1.24 3.2 4.57 4.57 0 0 0 1.24 3.23l3.63 3.63A4.38 4.38 0 0 0 11.66 22a4.45 4.45 0 0 0 3.2-1.25L17 18.56a1.14 1.14 0 0 0-1.61-1.62z"></path>
+                <path d="M19.34 12.84h-8.45a1.12 1.12 0 0 0 0 2.24h8.45a1.12 1.12 0 0 0 0-2.24"></path>
+              </svg>
+            </Link>
+          </div>
+</div>
       </div>
 
       {/* Bottom Bar */}
