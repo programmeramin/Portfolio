@@ -87,7 +87,7 @@ export default function TechStack() {
 
   return (
     <div className="w-full dark:bg-[#0c101a] bg-white py-20 px-4">
-      <div className="container mx-auto">
+      <div className="max-w-7xl mx-auto">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 200 }}

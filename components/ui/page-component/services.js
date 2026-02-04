@@ -17,14 +17,14 @@ export default function MyServices() {
 
   return (
     <>
-      <div className="container mx-auto w-full py-20 dark:bg-[#0c101a] bg-white justify-center items-center">
-        <div className="container mx-auto">
+      <div className="w-full dark:bg-[#0c101a] bg-white justify-center items-center">
+        <div className="max-w-7xl mx-auto">
           <motion.div
             ref={ref}
             initial={{ opacity: 0, y: 200 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 200 }}
             transition={{ duration: 0.8 }}
-            
+            className="text-center mb-12 px-4"
           >
             <h1 className="text-center text-3xl md:text-4xl font-bold mb-6">
               My {""}
@@ -38,22 +38,57 @@ export default function MyServices() {
 
           <motion.div
             ref={ref}
-            className="grid lg:grid-cols-2 md:grid-cols-2 px-5 gap-5"
+            className="grid lg:grid-cols-2 md:grid-cols-2 gap-5 lg:px-0 px-4"
           >
             {/* Frontend */}
             <motion.div
-              initial={{ opacity: 0, y: 200 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 200 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-center py-10 items-center justify-center dark:bg-[#040f2b] bg-white border dark:border-gray-500 rounded-xl border-gray-500 mb-6 transform transition duration-700 hover:scale-105"
+              initial={{ opacity: 0, y: 80 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 80 }}
+              transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+              className="group border border-gray-200 dark:border-gray-700
+             flex flex-col overflow-hidden
+             bg-white dark:bg-gray-800
+             rounded-md transform transition-transform duration-500 hover:scale-105"
             >
-              <div className="text-blue-500 text-3xl mb-2 px-2">&lt;/&gt;</div>
-              <h1 className="lg:text-4xl md:text-2xl text-2xl mb-1 dark:text-gray-300 text-gray-700 px-2">
-                Frontend Development
-              </h1>
-              <p className="dark:text-gray-300 text-gray-800 font-medium text-md px-1">
-                High-performance modern responsive frontend experiences using React, Next.js, and TypeScript.
-              </p>
+              {/* Image Section */}
+              <div className="relative w-full h-52 lg:h-60 overflow-hidden">
+                <img
+                  src="/image/frontend.png"
+                  alt="Frontend Development"
+                  className="w-full h-full object-cover"
+                />
+                {/* subtle overlay */}
+                <div className="absolute inset-0 bg-black/5 group-hover:bg-black/10 transition-colors duration-500" />
+              </div>
+
+              {/* Content */}
+              <div className="flex flex-col items-center text-center gap-3 px-5  py-6">
+                <h3
+                  className="text-2xl md:text-3xl font-semibold tracking-tight
+                   text-gray-800 dark:text-gray-200"
+                >
+                  Frontend Development
+                </h3>
+
+                <p
+                  className="text-sm md:text-base leading-relaxed
+                  text-gray-600 dark:text-gray-300"
+                >
+                  High-performance modern responsive frontend experiences using
+                  <span className="font-medium text-gray-800 dark:text-gray-100">
+                    {" "}
+                    React, Next.js,{" "}
+                  </span>
+                  and
+                  <span className="font-medium text-gray-800 dark:text-gray-100">
+                    {" "}
+                    TypeScript
+                  </span>
+                  .
+                  <br />
+                  Clean, maintainable code for scalable applications.
+                </p>
+              </div>
             </motion.div>
 
             {/* Backend */}
@@ -61,18 +96,27 @@ export default function MyServices() {
               initial={{ opacity: 0, y: 200 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 200 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-center py-10 items-center justify-center dark:bg-[#040f2b] bg-white border dark:border-gray-500 mb-6 rounded-xl border-gray-500 transform transition duration-700 hover:scale-105"
+              className=" border flex flex-col items-center gap-6 pb-10 bg-white dark:bg-gray-800 rounded-md shadow-xl hover:shadow-2xl transform transition-transform duration-500 hover:scale-105"
             >
-              <div className="text-blue-500 text-3xl mb-2 flex justify-center ">
-                <SiBackendless size={35} />
+              <div className="w-full">
+                <img
+                  src="/image/backend.png"
+                  alt="Frontend Development"
+                  className="rounded-md object-cover w-full lg:h-60 h-50"
+                />
               </div>
-              <h1 className="lg:text-4xl md:text-2xl text-2xl mb-1 dark:text-gray-300 text-gray-700 px-2">
-                Backend Development
-              </h1>
-              <p className="dark:text-gray-300 text-gray-800 font-medium text-md px-2">
-                Scalable APIs and server-side applications with Node.js or Nest.js and
-                databases MongoDB & PostgreSQL.
-              </p>
+              <div className="flex flex-col items-center text-center">
+                <h1 className="lg:text-4xl md:text-2xl text-2xl mb-1 dark:text-gray-300 text-gray-700 px-2">
+                  Backend Development
+                </h1>
+                <p
+                  className="text-sm md:text-base leading-relaxed
+                  text-gray-600 dark:text-gray-300"
+                >
+                  Scalable APIs and server-side applications with Node.js or
+                  Nest.js <br /> and databases MongoDB & PostgreSQL.
+                </p>
+              </div>
             </motion.div>
 
             {/* Full-Stack */}
@@ -80,17 +124,27 @@ export default function MyServices() {
               initial={{ opacity: 0, y: 200 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 200 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-center py-10 items-center dark:bg-[#040f2b] bg-white border dark:border-gray-500 mb-6 rounded-xl border-gray-500 transform transition duration-700 hover:scale-105"
+              className=" border flex flex-col items-center gap-6 pb-10 bg-white dark:bg-gray-800 rounded-md shadow-xl hover:shadow-2xl transform transition-transform duration-500 hover:scale-105"
             >
-              <div className="w-full text-blue-500 text-3xl mb-2 flex justify-center">
-                <PiBatteryVerticalFullFill size={35} />
+              <div className="w-full">
+                <img
+                  src="/image/full-stack.png"
+                  alt="Frontend Development"
+                  className="rounded-md object-cover w-full lg:h-60 h-50"
+                />
               </div>
-              <h1 className="lg:text-4xl md:text-2xl text-2xl mb-1 dark:text-gray-300 text-gray-700 px-2">
-                Full-Stack Solutions
-              </h1>
-              <p className="dark:text-gray-300 text-gray-800 font-medium text-md px-1">
-                Seamless end-to-end web applications solutions with integrated frontend and backend.
-              </p>
+              <div className="flex flex-col items-center text-center">
+                <h1 className="lg:text-4xl md:text-2xl text-2xl mb-1 dark:text-gray-300 text-gray-700 px-2">
+                  Full-Stack Solutions
+                </h1>
+                <p
+                  className="text-sm md:text-base leading-relaxed
+                  text-gray-600 dark:text-gray-300"
+                >
+                  Seamless end-to-end web applications solutions <br /> with
+                  integrated frontend and backend.
+                </p>
+              </div>
             </motion.div>
 
             {/* AI/ML Integration */}
@@ -98,35 +152,51 @@ export default function MyServices() {
               initial={{ opacity: 0, y: 200 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 200 }}
               transition={{ duration: 0.8, delay: 0.8 }}
-              className="text-center py-10 items-center dark:bg-[#040f2b] bg-white border dark:border-gray-500 mb-6 rounded-xl border-gray-500 transform transition duration-700 hover:scale-105"
+              className="border flex flex-col items-center gap-6 pb-10 bg-white dark:bg-gray-800 rounded-md shadow-xl hover:shadow-2xl transform transition-transform duration-500 hover:scale-105"
             >
-              <div className="text-blue-500 text-3xl mb-2 flex justify-center">
-                <PiCpuFill size={35} />
+              <div className="w-full">
+                <img
+                  src="/image/aiml.png"
+                  alt="Frontend Development"
+                  className="rounded-md object-cover w-full lg:h-60 h-50"
+                />
               </div>
-              <h1 className="lg:text-4xl md:text-2xl text-2xl mb-1 dark:text-gray-300 text-gray-700 px-2">
-                AI / ML Integration
-              </h1>
-              <p className="dark:text-gray-300 text-gray-800 font-medium text-md px-2">
-                Build intelligent applications using AI/ML models integrated
-                with your web and backend systems.
-              </p>
+              <div className="flex flex-col items-center text-center">
+                {" "}
+                <h1 className="lg:text-4xl md:text-2xl text-2xl mb-1 dark:text-gray-300 text-gray-700 px-2">
+                  AI / ML Integration
+                </h1>
+                <p
+                  className="text-sm md:text-base leading-relaxed
+                  text-gray-600 dark:text-gray-300"
+                >
+                  Build intelligent applications using AI/ML models integrated
+                  <br /> with your web and backend systems.
+                </p>
+              </div>
             </motion.div>
           </motion.div>
 
-          <div
-            className="flex justify-center items-center"
-          >
-            <button className="flex items-center text-white gap-5 bg-gradient-to-r via-purple-700 px-5 py-2 rounded-md to-pink-600 from-indigo-700 hover:via-purple-900 hover:from-indigo-800 hover:to-pink-800 transform transition hover:scale-105 duration-500 cursor-pointer">
-              View All Services
-              <Link href="#">
-                <FaArrowRightLong />
-              </Link>
-            </button>
+          <div className="flex justify-center items-center mt-10">
+             <a
+              href="/services"
+              className="group inline-flex items-center gap-3
+             px-6 py-3 rounded-md
+             text-sm md:text-base font-medium text-white
+             bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600
+             border border-indigo-500/40
+             shadow-md hover:shadow-xl
+             transition-all duration-500
+             hover:scale-105 hover:-translate-y-0.5"
+            >
+              View all services
+              <span className="transition-transform duration-500 group-hover:translate-x-1">
+                →
+              </span>
+            </a>
           </div>
         </div>
       </div>
-
-     
     </>
   );
 }

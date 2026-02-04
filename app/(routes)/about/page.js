@@ -63,9 +63,12 @@ const AboutMe = () => {
             className="flex justify-center"
           >
             <div className="relative flex gap-4">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl blur-2xl opacity-30 animate-pulse"></div>
-              <Image src="/image/my-photo.png" alt="Profile" width={300} height={400} className="rounded-l-2xl" />
-              <Image src="/image/my-cover.png" alt="Profile" width={300} height={400} className="rounded-r-2xl" />
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-300 to-purple-300 rounded-2xl blur-2xl opacity-30 animate-pulse"></div>
+              <img
+              src="/image/aminislambanner.png"
+              alt="Profile"
+              className="overflow-hidden rounded-md lg:h-90 w-full"
+            />
             </div>
           </motion.div>
 

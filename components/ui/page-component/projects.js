@@ -67,7 +67,7 @@ export default function FeaturedProjects() {
         </motion.div>
 
         {/* Project Cards */}
-        <div className="grid lg:grid-cols-2 md:grid-cols-1 gap-8 px-6">
+        <div className="grid lg:grid-cols-2 md:grid-cols-1 gap-6 px-6">
           {projects.map((item, index) => (
             <motion.div
               key={index}
@@ -114,9 +114,22 @@ export default function FeaturedProjects() {
 
         {/* View All Button */}
         <div className="text-center mt-12">
-          <button className=" bg-gradient-to-r via-purple-700 px-5 py-2 r to-pink-600 from-indigo-700 hover:via-purple-900 hover:from-indigo-800 hover:to-pink-800 transform transition hover:scale-105 duration-500 text-white rounded-lg flex items-center gap-2 mx-auto">
-            View All Projects <FaArrowRight />
-          </button>
+          <a
+              href="/projects"
+              className="group inline-flex items-center gap-3
+             px-6 py-3 rounded-md
+             text-sm md:text-base font-medium text-white
+             bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600
+             border border-indigo-500/40
+             shadow-md hover:shadow-xl
+             transition-all duration-500
+             hover:scale-105 hover:-translate-y-0.5"
+            >
+              View all projects
+              <span className="transition-transform duration-500 group-hover:translate-x-1">
+                →
+              </span>
+            </a>
         </div>
       </div>
     </>

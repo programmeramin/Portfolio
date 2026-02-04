@@ -34,7 +34,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="dark:bg-[#0c101a] bg-gray-150 min-h-screen flex justify-center items-center">
+      <div className="w-full mx-auto dark:bg-[#0c101a] bg-gray-150 min-h-screen flex justify-center items-center">
         <motion.div
           ref={ref}
           initial={{ y: 200 }}
@@ -50,9 +50,7 @@ export default function Home() {
             </button>
 
             {/* Title */}
-            <h1
-              className="text-2xl md:text-3xl lg:text-4xl font-bold text-center leading-tight bg-gradient-to-r from-primary via-blue-500 to-purple-600 bg-clip-text text-transparent tracking-tight"
-            >
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center leading-tight bg-gradient-to-r from-primary via-blue-500 to-purple-600 bg-clip-text text-transparent tracking-tight">
               <Typewriter
                 words={["Full Stack MERN Developer | AI/ML-Focused"]}
                 loop={0}
@@ -66,7 +64,7 @@ export default function Home() {
 
             {/* Subtitle */}
             <p
-              className="text-center text-medium xs:text-lg lg:text-2xl md:text-xl text-muted-foreground max-w-3xl px-2 leading-relaxed"
+              className="text-center text-medium xs:text-lg lg:text-2xl md:text-xl text-muted-foreground max-w-3xl px-3 leading-relaxed"
               style={{ opacity: 1, transform: "none" }}
             >
               I build modern,{" "}
@@ -194,12 +192,9 @@ export default function Home() {
       </div>
 
       {/* About me */}
-      <div
-        ref={aboutRef}
-        className="w-full dark:bg-[#0c101a] bg-white py-20 px-4"
-      >
+      <div ref={aboutRef} className="w-full dark:bg-[#0c101a] bg-white py-20">
         <div
-          className="container max-w-7xl mx-auto grid
+          className="max-w-7xl mx-auto grid
     lg:grid-cols-2 md:grid-cols-1 grid-cols-1 px-2 gap-12 items-center"
         >
           {/* Left Image — from LEFT */}
@@ -207,21 +202,12 @@ export default function Home() {
             initial={{ opacity: 0, x: -150 }}
             animate={aboutInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.9, ease: "easeOut" }}
-            className="flex w-full"
+            className="flex w-full lg:px-0 sm:px-2"
           >
-            <Image
-              src="/image/my-photo.png"
+            <img
+              src="/image/aminislambanner.png"
               alt="Profile"
-              width={350}
-              height={400}
-              className="overflow-hidden rounded-l-2xl"
-            />
-            <Image
-              src="/image/my-cover.png"
-              alt="Profile"
-              width={350}
-              height={400}
-              className="overflow-hidden mr-20 rounded-r-2xl"
+              className="overflow-hidden rounded-md lg:h-90 w-full"
             />
           </motion.div>
 
@@ -230,17 +216,22 @@ export default function Home() {
             initial={{ opacity: 0, x: 150 }}
             animate={aboutInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.9, ease: "easeOut", delay: 0.2 }}
+            className="lg:px-0 px-2"
           >
             <h2 className="text-4xl font-bold dark:text-white text-gray-800 mb-4">
               About <span className="text-blue-400">Me</span>
             </h2>
 
             <p className="dark:text-gray-300 text-gray-700 text-md font-medium leading-relaxed mb-4">
-              I’m a passionate Full Stack MERN Developer with experience building modern, scalable, and high-performance web applications, combining clean frontend interfaces with robust backend systems.
+              I’m a passionate Full Stack MERN Developer with experience
+              building modern, scalable, and high-performance web applications,
+              combining clean frontend interfaces with robust backend systems.
             </p>
 
             <p className="dark:text-gray-300 text-gray-700 text-md font-medium leading-relaxed mb-8">
-             When I’m not coding, I explore emerging technologies, contribute to open-source projects, and continuously upskill in AI and machine learning to create smarter web solutions.
+              When I’m not coding, I explore emerging technologies, contribute
+              to open-source projects, and continuously upskill in AI and
+              machine learning to create smarter web solutions.
             </p>
 
             {/* Stats */}
@@ -255,7 +246,7 @@ export default function Home() {
                   initial={{ opacity: 0, y: 40 }}
                   animate={aboutInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.4 + i * 0.15 }}
-                  className="dark:bg-[#0d1224] border dark:border-gray-700 border-gray-300 p-6 rounded-xl text-center hover:scale-105 transition duration-500"
+                  className="dark:bg-[#0d1224] border dark:border-gray-700 border-gray-300 py-6 rounded-xl text-center hover:scale-105 transition duration-500"
                 >
                   <div className="text-blue-500 text-3xl mb-2">{item.icon}</div>
                   <h3 className="dark:text-gray-300 text-gray-800 text-xl font-bold">
@@ -266,9 +257,22 @@ export default function Home() {
               ))}
             </div>
 
-            <button className="flex items-center text-white gap-5 bg-gradient-to-r via-purple-700 px-5 py-2 rounded-md to-pink-600 from-indigo-700 hover:scale-105 transition duration-500 border border-blue-500 cursor-pointer">
-              Learn More About Me →
-            </button>
+            <a
+              href="/about"
+              className="group inline-flex items-center gap-3
+             px-6 py-3 rounded-md
+             text-sm md:text-base font-medium text-white
+             bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600
+             border border-indigo-500/40
+             shadow-md hover:shadow-xl
+             transition-all duration-500
+             hover:scale-105 hover:-translate-y-0.5"
+            >
+              Learn More About Me
+              <span className="transition-transform duration-500 group-hover:translate-x-1">
+                →
+              </span>
+            </a>
           </motion.div>
         </div>
       </div>
