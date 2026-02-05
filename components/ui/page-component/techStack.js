@@ -81,12 +81,12 @@ export default function TechStack() {
 
   const ref = useRef(null);
   const isInView = useInView(ref, {
-    once: true, // একবারই animate হবে
-    margin: "-50px", // একটু আগে থেকেই trigger
+    once: true,
+    margin: "-50px",
   });
 
   return (
-    <div className="w-full dark:bg-[#0c101a] bg-white py-20 px-4">
+    <div className="w-full dark:bg-[#0c101a] bg-white py-20">
       <div className="max-w-7xl mx-auto">
         <motion.div
           ref={ref}
@@ -94,9 +94,10 @@ export default function TechStack() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 200 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-center text-3xl md:text-4xl font-bold mb-6">
+          <h2 className="text-center text-3xl md:text-4xl font-bold mb-2">
             Tech <span className="text-blue-400">Stack</span>
           </h2>
+           <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-600 mx-auto rounded-full mb-3"></div>
 
           <p className="text-center text-xl lg:text-2xl md:text-xl dark:text-gray-300 text-gray-900 mb-12">
             I work with modern technologies to build scalable and performant
@@ -104,7 +105,7 @@ export default function TechStack() {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-4 grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid lg:grid-cols-4 grid-cols-2 md:grid-cols-3 gap-6">
           {tech.map((item, index) => (
             <motion.div
               key={index}
