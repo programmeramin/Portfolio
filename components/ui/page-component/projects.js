@@ -42,7 +42,7 @@ export default function FeaturedProjects() {
   const ref = useRef(null);
   const isInView = useInView(ref, {
     once: true,
-    margin: "-50px",
+    margin: "0px",
   });
 
   return (
@@ -54,7 +54,7 @@ export default function FeaturedProjects() {
           initial={{ opacity: 0, y: 200 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 200 }}
           transition={{ duration: 0.8 }}
-          className="container w-full max-w-4xl mx-auto px-4 text-center mb-12"
+          className="container w-full max-w-4xl mx-auto px-6 text-center mb-12"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-gray-100">
             Featured <span className="text-blue-400">Projects</span>
@@ -67,12 +67,13 @@ export default function FeaturedProjects() {
         </motion.div>
 
         {/* Project Cards */}
-        <div className="grid lg:grid-cols-2 md:grid-cols-1 gap-6 px-6">
+        <div ref={ref}  className="grid lg:grid-cols-2 md:grid-cols-1 gap-6 px-4">
           {projects.map((item, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 300 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+              
+              initial={{ opacity: 0, y: 200 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 200 }}
               transition={{ duration: 1, delay: index * 0.2 }}
               key={index}
               className="dark:bg-[#111827] bg-white  rounded-xl border border-transparent hover:border-blue-400 transition-all 

@@ -29,7 +29,7 @@ export default function Home() {
   const aboutRef = useRef(null);
   const aboutInView = useInView(aboutRef, {
     once: true,
-    margin: "-100px", // একটু আগেই trigger হবে
+    margin: "0px", // একটু আগেই trigger হবে
   });
 
   return (
@@ -44,7 +44,6 @@ export default function Home() {
         >
           {/* Column Layout */}
           <div className="flex flex-col items-center gap-6 justify-center mx-auto">
-            {/* Top Button */}
             <button className="px-6 py-3  self-center dark:bg-[#091c4d] dark:text-amber-100 bg-gray-200 rounded-full outline-none">
               ✨ Enter My World of Innovation
             </button>
@@ -195,33 +194,42 @@ export default function Home() {
       <div ref={aboutRef} className="w-full dark:bg-[#0c101a] bg-white py-20">
         <div
           className="max-w-7xl mx-auto grid
-    lg:grid-cols-2 md:grid-cols-1 grid-cols-1 px-2 gap-12 items-center"
+    lg:grid-cols-2 grid-cols-1 px-4 lg:px-0 gap-12 items-center"
         >
-          {/* Left Image — from LEFT */}
+          {/* Section Title — CENTER & FULL WIDTH */}
           <motion.div
-            initial={{ opacity: 0, x: -150 }}
-            animate={aboutInView ? { opacity: 1, x: 0 } : {}}
+            initial={{ y: 200, opacity: 0 }}
+            animate={aboutInView ? { y: 0, opacity: 1 } : {}}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="lg:col-span-2 text-center mb-8"
+          >
+            <h1 className="text-5xl md:text-6xl font-bold dark:text-white text-gray-800 mb-4">
+              About <span className="text-blue-400">Me</span>
+            </h1>
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-600 mx-auto rounded-full"></div>
+          </motion.div>
+
+          {/* Left Image */}
+          <motion.div
+            initial={{ x: 200, opacity: 0 }}
+            animate={aboutInView ? { x: 0, opacity: 1 } : {}}
             transition={{ duration: 0.9, ease: "easeOut" }}
-            className="flex w-full lg:px-0 sm:px-2"
+            className="flex justify-center lg:justify-start"
           >
             <img
               src="/image/aminislambanner.png"
               alt="Profile"
-              className="overflow-hidden rounded-md lg:h-90 w-full"
+              className="rounded-md w-full"
             />
           </motion.div>
 
-          {/* Right Content — from RIGHT */}
+          {/* Right Content */}
           <motion.div
-            initial={{ opacity: 0, x: 150 }}
-            animate={aboutInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.9, ease: "easeOut", delay: 0.2 }}
-            className="lg:px-0 px-2"
+            initial={{ x: -200, opacity: 0 }}
+            animate={aboutInView ? { x: 0, opacity: 1 } : {}}
+            transition={{ duration: 1.4, ease: "easeOut" }}
+            className="text-left"
           >
-            <h2 className="text-4xl font-bold dark:text-white text-gray-800 mb-4">
-              About <span className="text-blue-400">Me</span>
-            </h2>
-
             <p className="dark:text-gray-300 text-gray-700 text-md font-medium leading-relaxed mb-4">
               I’m a passionate Full Stack MERN Developer with experience
               building modern, scalable, and high-performance web applications,
@@ -246,7 +254,7 @@ export default function Home() {
                   initial={{ opacity: 0, y: 40 }}
                   animate={aboutInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.4 + i * 0.15 }}
-                  className="dark:bg-[#0d1224] border dark:border-gray-700 border-gray-300 py-6 rounded-xl text-center hover:scale-105 transition duration-500"
+                  className="dark:bg-[#0d1224] border dark:border-gray-700 border-gray-300 py-6 rounded-xl text-center"
                 >
                   <div className="text-blue-500 text-3xl mb-2">{item.icon}</div>
                   <h3 className="dark:text-gray-300 text-gray-800 text-xl font-bold">
@@ -257,22 +265,21 @@ export default function Home() {
               ))}
             </div>
 
-            <a
-              href="/about"
-              className="group inline-flex items-center gap-3
-             px-6 py-3 rounded-md
-             text-sm md:text-base font-medium text-white
-             bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600
-             border border-indigo-500/40
-             shadow-md hover:shadow-xl
-             transition-all duration-500
-             hover:scale-105 hover:-translate-y-0.5"
-            >
-              Learn More About Me
-              <span className="transition-transform duration-500 group-hover:translate-x-1">
-                →
-              </span>
-            </a>
+            <div className="flex justify-center lg:justify-start">
+              <a
+                href="/about"
+                className="group inline-flex items-center gap-3
+          px-6 py-3 rounded-md
+          text-sm md:text-base font-medium text-white
+          bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600
+          transition-all duration-500 hover:scale-105"
+              >
+                Learn More About Me
+                <span className="group-hover:translate-x-1 transition-transform">
+                  →
+                </span>
+              </a>
+            </div>
           </motion.div>
         </div>
       </div>

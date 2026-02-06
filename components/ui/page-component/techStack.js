@@ -82,49 +82,61 @@ export default function TechStack() {
   const ref = useRef(null);
   const isInView = useInView(ref, {
     once: true,
-    margin: "-50px",
+    margin: "0px",
   });
 
   return (
-    <div className="w-full dark:bg-[#0c101a] bg-white py-20">
-      <div className="max-w-7xl mx-auto">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 200 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 200 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h2 className="text-center text-3xl md:text-4xl font-bold mb-2">
-            Tech <span className="text-blue-400">Stack</span>
-          </h2>
-           <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-600 mx-auto rounded-full mb-3"></div>
+  <div className="max-w-7xl mx-auto lg:px-0 px-4 dark:bg-[#0c101a]">
+  {/* Section Heading */}
+  <motion.div
+    ref={ref}
+    initial={{ opacity: 0, y: 200 }}
+    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 200 }}
+    transition={{ duration: 0.8, ease: "easeOut" }}
+    className="text-center mb-12"
+  >
+    <h2 className="text-3xl md:text-4xl font-bold mb-3">
+      Tech <span className="text-blue-400">Stack</span>
+    </h2>
 
-          <p className="text-center text-xl lg:text-2xl md:text-xl dark:text-gray-300 text-gray-900 mb-12">
-            I work with modern technologies to build scalable and performant
-            applications
-          </p>
-        </motion.div>
+    <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-600 mx-auto rounded-full mb-4"></div>
 
-        <div className="grid lg:grid-cols-4 grid-cols-2 md:grid-cols-3 gap-6">
-          {tech.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 100 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
-              transition={{ duration: 0.8, delay: index * 0.2 }}
-              className="dark:bg-[#111827] border dark:border-gray-800 bg-gray-200 border-gray-400 rounded-xl py-10 flex flex-col items-center hover:border-blue-400 transition transform-gpu hover:scale-105 duration-800 cursor-pointer"
-            >
-              <span className="bg-gray-700 rounded-xl p-4">{item.icon}</span>
-              <h3 className="mt-4 text-lg font-semibold dark:text-gray-200 text-gray-800">
-                {item.title}
-              </h3>
-              <p className="text-sm dark:text-gray-300 text-gray-800">
-                {item.tag}
-              </p>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </div>
+    <p className="text-xl md:text-2xl dark:text-gray-300 text-gray-900 max-w-3xl mx-auto">
+      I work with modern technologies to build scalable and performant
+      applications
+    </p>
+  </motion.div>
+
+  {/* Tech Grid */}
+  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    {tech.map((item, index) => (
+      <motion.div
+        key={index}
+        initial={{ opacity: 0, y: 100 }}
+        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
+        transition={{ duration: 0.6, delay: index * 0.15 }}
+        className="dark:bg-[#111827] bg-gray-200
+        border dark:border-gray-800 border-gray-400
+        rounded-xl py-10
+        flex flex-col items-center
+        hover:border-blue-400 hover:scale-105
+        transition-all duration-500 cursor-pointer"
+      >
+        <span className="bg-gray-700 rounded-xl p-4 text-white text-2xl">
+          {item.icon}
+        </span>
+
+        <h3 className="mt-4 text-lg font-semibold dark:text-gray-200 text-gray-800">
+          {item.title}
+        </h3>
+
+        <p className="text-sm dark:text-gray-300 text-gray-700">
+          {item.tag}
+        </p>
+      </motion.div>
+    ))}
+  </div>
+</div>
+
   );
 }
