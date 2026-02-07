@@ -23,7 +23,7 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 w-full bg-gray-150 dark:bg-[#0c101a] backdrop-blur-md z-50 dark:border-gray-500 shadow-sm transition-colors duration-300">
       <div className="relative max-w-7xl mx-auto px-4 md:px-0 lg:px-0">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-15">
           {/* Logo */}
           <Link
             href="/"

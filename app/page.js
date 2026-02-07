@@ -22,14 +22,14 @@ import { motion, useInView } from "framer-motion";
 export default function Home() {
   const ref = useRef(null);
   const isInView = useInView(ref, {
-    once: true, // একবারই animate হবে
-    margin: "-50px", // একটু আগে থেকেই trigger
+    once: true,
+    margin: "-50px",
   });
 
   const aboutRef = useRef(null);
   const aboutInView = useInView(aboutRef, {
     once: true,
-    margin: "0px", // একটু আগেই trigger হবে
+    margin: "0px",
   });
 
   return (
@@ -193,8 +193,7 @@ export default function Home() {
       {/* About me */}
       <div ref={aboutRef} className="w-full dark:bg-[#0c101a] bg-white py-20">
         <div
-          className="max-w-7xl mx-auto grid
-    lg:grid-cols-2 grid-cols-1 px-4 lg:px-0 gap-12 items-center"
+          className="max-w-7xl mx-auto grid lg:grid-cols-2 grid-cols-1 px-4 lg:px-0 gap-12 items-center"
         >
           {/* Section Title — CENTER & FULL WIDTH */}
           <motion.div

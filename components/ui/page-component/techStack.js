@@ -112,7 +112,7 @@ export default function TechStack() {
     {tech.map((item, index) => (
       <motion.div
         key={index}
-        initial={{ opacity: 0, y: 100 }}
+        initial={{ opacity: 0, y: 200 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
         transition={{ duration: 0.6, delay: index * 0.15 }}
         className="dark:bg-[#111827] bg-gray-200

@@ -2,7 +2,16 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Code2, Coffee, Users, Award, Zap, Heart, Mail } from "lucide-react";
+import {
+  Code2,
+  Coffee,
+  Users,
+  Award,
+  Zap,
+  Heart,
+  Mail,
+  TrendingUp,
+} from "lucide-react";
 import { FaFacebook, FaInstagram, FaGithub, FaLinkedin } from "react-icons/fa";
 import { BsTwitterX } from "react-icons/bs";
 import { SiLeetcode } from "react-icons/si";
@@ -40,24 +49,50 @@ const skills = [
   { name: "Cloud & DevOps", level: 75 },
 ];
 
-const journey = [
-  {
-    year: "2024",
-    title: "Senior Full Stack Developer",
-    description: "Leading development of enterprise-scale applications",
-    icon: Award,
-  },
+const journeyData = [
   {
     year: "2022",
-    title: "Full Stack Developer",
-    description: "Built 50+ production-ready web applications",
-    icon: Zap,
+    title: "Started Coding Journey",
+    description:
+      "Began my journey with programming fundamentals and JavaScript, building small projects and learning core concepts.",
   },
   {
-    year: "2020",
-    title: "Started Coding Journey",
-    description: "Fell in love with JavaScript and web development",
-    icon: Heart,
+    year: "2024",
+    title: "Full Stack MERN Developer",
+    description:
+      "Built multiple real-world MERN stack applications with authentication, APIs, and database integrations.",
+  },
+  {
+    year: "2025",
+    title: "AI/ML Focus & Advanced Full Stack",
+    description:
+      "Expanding into AI/ML with Python while building scalable, production-ready full stack systems.",
+  },
+];
+
+const experiences = [
+  {
+    role: "Software Engineer (MERN Stack)",
+    company: "Bangladesh · On-site / Remote",
+    duration: "2025 – Present",
+    description:
+      "Working as a Software Engineer specializing in the MERN stack. Building scalable, production-ready web applications with a strong focus on performance, security, and clean architecture. Collaborating with cross-functional teams to deliver real-world business solutions.",
+    tech: ["React", "Next.js", "Node.js", "Express", "MongoDB", "TypeScript"],
+  },
+  {
+    role: "Freelance MERN Stack Developer",
+    company: "Remote · Global Clients",
+    duration: "2024 – Present",
+    description:
+      "Delivered custom full-stack web solutions for international and local clients. Responsible for end-to-end development including UI design, backend APIs, database modeling, deployment, and post-launch optimization.",
+    tech: [
+      "React",
+      "Next.js",
+      "Node.js",
+      "MongoDB",
+      "Tailwind CSS",
+      "REST APIs",
+    ],
   },
 ];
 
@@ -71,9 +106,22 @@ const AboutMe = () => {
     amount: 0.2,
   });
 
+  const myref = useRef(null);
+  const journeyRef = useInView(myref, {
+    once: true,
+    amount: 0.2,
+  });
+
+  const myexref = useRef(null)
+  const experienceRef = useInView(myexref, {
+    once : true,
+    amount : 0.2
+  });
+
+
   // Variants for animations
   const fadeUp = {
-    hidden: { opacity: 0, y: 50 },
+    hidden: { opacity: 0, y: 200 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
   };
   const fadeLeft = {
@@ -198,15 +246,21 @@ const AboutMe = () => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto">
+      <div ref={socialRef} className="max-w-7xl mx-auto">
         <div className="py-10 m-0 text-left mb-10">
-          <h1 className="text-2xl md:text-3xl lg:text-4xl">
+          <motion.h1
+            initial={{ opacity: 0, y: 200 }}
+            animate={
+              socialIconRef ? { opacity: 1, y: 0 } : { opacity: 0, y: 200 }
+            }
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="text-2xl md:text-3xl lg:text-4xl"
+          >
             Connect with Social Media
-          </h1>
+            <div className="w-25 h-[2px] bg-blue-700 text-left mt-1 text-blue-700"></div>
+          </motion.h1>
 
-          <div className="w-25 h-[2px] bg-blue-700 text-left mt-1 text-blue-700"></div>
-
-          <ul ref={socialRef} className="flex flex-wrap gap-4 mt-6">
+          <ul className="flex flex-wrap gap-4 mt-6">
             {Social.map((item, index) => (
               <motion.li
                 key={index}
@@ -214,7 +268,7 @@ const AboutMe = () => {
                 animate={
                   socialIconRef ? { opacity: 1, y: 0 } : { opacity: 0, y: 200 }
                 }
-                 transition={{ duration: 0.8, ease: "easeOut" }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
               >
                 <a
                   href={item.url}
@@ -253,24 +307,120 @@ const AboutMe = () => {
           </ul>
         </div>
       </div>
-
+      {/* TECK STACK */}
       <div>
         <TechStack />
       </div>
 
-      <div className="max-w-7xl mx-auto py-10">
+      {/* MY JOURNEY */}
+      <div ref={myref} className="max-w-7xl mx-auto">
         <motion.div
           initial="hidden"
-          animate={aboutInView ? "visible" : "hidden"}
+          animate={journeyRef ? "visible" : "hidden"}
           variants={fadeUp}
-          className="text-center mb-16"
+          className="text-center pt-15 py-5"
         >
           <h1 className="text-5xl md:text-6xl font-bold dark:text-white text-gray-800 mb-4">
             My <span className="text-blue-400">Journey</span>
           </h1>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-600 mx-auto rounded-full"></div>
         </motion.div>
+
+        <div className="grid md:grid-cols-3 sm:grid-cols-1 gap-8 mt-12">
+          {journeyData.map((item, index) => (
+            <motion.div
+              key={index}
+               initial={{opacity : 0, y : 200}}
+               animate={journeyRef ? {opacity : 1, y : 0} : {opacity : 0, y : 200}}
+              transition={{ duration: 0.6, delay: index * 0.20 }}
+              className="relative group p-6 rounded-2xl
+      bg-white dark:bg-white/10 backdrop-blur-md
+      border border-gray-200 dark:border-white/20
+      hover:border-blue-500 dark:hover:border-blue-500
+      shadow-md hover:shadow-xl transition-all duration-300"
+            >
+              <span
+                className="inline-block mb-4 px-4 py-1 text-sm font-semibold
+        rounded-full bg-blue-100 text-blue-600
+        dark:bg-blue-500/10 dark:text-blue-400"
+              >
+                {item.year}
+              </span>
+
+              <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white">
+                {item.title}
+              </h3>
+
+              <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                {item.description}
+              </p>
+
+              {/* Hover Glow */}
+              <div
+                className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100
+        bg-gradient-to-r from-blue-400/10 via-purple-400/10 to-pink-400/10
+        transition-opacity duration-300 pointer-events-none"
+              ></div>
+            </motion.div>
+          ))}
+        </div>
       </div>
+
+      <section ref={myexref} className="max-w-7xl mx-auto py-20 px-2 lg:px-0">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 200 }}
+          animate={experienceRef ? { opacity: 1, y: 0 } : {opacity : 0 , y : 200}}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold dark:text-white text-gray-800">
+            Professional <span className="text-blue-400">Experience</span>
+          </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-600 mx-auto mt-4 rounded-full" />
+        </motion.div>
+
+        {/* Cards */}
+        <div className="grid lg:grid-cols-2 md:grid-cols-1 gap-4 ">
+          {experiences.map((exp, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, x: index % 2 === 0 ? -200 : 100 }}
+              animate={experienceRef ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.8, delay: index * 0.2 }}
+              className="dark:bg-[#0d1224] bg-gray-50 border dark:border-gray-700 border-gray-300 rounded-xl p-6 md:p-8 hover:shadow-xl transition duration-300"
+            >
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                <div>
+                  <h3 className="text-xl font-bold dark:text-white text-gray-800">
+                    {exp.role}
+                  </h3>
+                  <p className="text-blue-400 font-medium">{exp.company}</p>
+                </div>
+                <span className="text-sm dark:text-gray-400 text-gray-600 mt-2 md:mt-0">
+                  {exp.duration}
+                </span>
+              </div>
+
+              <p className="dark:text-gray-300 text-gray-700 leading-relaxed mb-4">
+                {exp.description}
+              </p>
+
+              {/* Tech stack */}
+              <div className="flex flex-wrap gap-2">
+                {exp.tech.map((tech, i) => (
+                  <span
+                    key={i}
+                    className="px-3 py-1 text-sm rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
     </div>
   );
 };
