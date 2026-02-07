@@ -96,6 +96,25 @@ const experiences = [
   },
 ];
 
+const education = [
+  {
+    degree: "Bachelor of Science (B.Sc) in Computer Science & Engineering",
+    institute: "Manarat International University",
+    duration: "2023 – Present",
+    status: "Currently Studying",
+    description:
+      "Studying core computer science fundamentals including data structures, algorithms, software engineering, and database systems, while actively building real-world projects alongside academic coursework.",
+  },
+  {
+    degree: "Diploma in Engineering (Electrical & Electronics Engineering)",
+    institute: "Bangladesh Technical Education Board (BTEB)",
+    duration: "2019 – 2023",
+    status: "Completed",
+    description:
+      "Completed a diploma program focused on electrical and electronics fundamentals, circuit design, industrial electronics, and practical engineering applications, building a strong technical foundation.",
+  },
+];
+
 const AboutMe = () => {
   const aboutRef = useRef(null);
   const aboutInView = useInView(aboutRef, { once: true, amount: 0.2 });
@@ -112,12 +131,11 @@ const AboutMe = () => {
     amount: 0.2,
   });
 
-  const myexref = useRef(null)
+  const myexref = useRef(null);
   const experienceRef = useInView(myexref, {
-    once : true,
-    amount : 0.2
+    once: true,
+    amount: 0.2,
   });
-
 
   // Variants for animations
   const fadeUp = {
@@ -330,9 +348,11 @@ const AboutMe = () => {
           {journeyData.map((item, index) => (
             <motion.div
               key={index}
-               initial={{opacity : 0, y : 200}}
-               animate={journeyRef ? {opacity : 1, y : 0} : {opacity : 0, y : 200}}
-              transition={{ duration: 0.6, delay: index * 0.20 }}
+              initial={{ opacity: 0, y: 200 }}
+              animate={
+                journeyRef ? { opacity: 1, y: 0 } : { opacity: 0, y: 200 }
+              }
+              transition={{ duration: 0.6, delay: index * 0.2 }}
               className="relative group p-6 rounded-2xl
       bg-white dark:bg-white/10 backdrop-blur-md
       border border-gray-200 dark:border-white/20
@@ -370,7 +390,9 @@ const AboutMe = () => {
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 200 }}
-          animate={experienceRef ? { opacity: 1, y: 0 } : {opacity : 0 , y : 200}}
+          animate={
+            experienceRef ? { opacity: 1, y: 0 } : { opacity: 0, y: 200 }
+          }
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
@@ -385,9 +407,9 @@ const AboutMe = () => {
           {experiences.map((exp, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -200 : 100 }}
+              initial={{ opacity: 0, x: index % 2 === 0 ? -200 : 200 }}
               animate={experienceRef ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.8, delay: index * 0.2 }}
+              transition={{ duration: 0.8 }}
               className="dark:bg-[#0d1224] bg-gray-50 border dark:border-gray-700 border-gray-300 rounded-xl p-6 md:p-8 hover:shadow-xl transition duration-300"
             >
               <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
@@ -421,6 +443,48 @@ const AboutMe = () => {
           ))}
         </div>
       </section>
+
+      <motion.div className="max-w-7xl mx-auto py-20">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-14"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold dark:text-white text-gray-800">
+            Education
+          </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-600 mx-auto mt-3 rounded-full" />
+        </motion.div>
+
+        <div className="space-y-8">
+          {education.map((edu, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, x: index % 2 === 0 ? -80 : 80 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="dark:bg-[#0d1224] bg-gray-50 border dark:border-gray-700 border-gray-300 rounded-xl p-6 hover:shadow-xl transition"
+            >
+              <h3 className="text-xl font-semibold dark:text-white text-gray-800">
+                {edu.degree}
+              </h3>
+
+              <p className="text-blue-400 font-medium mt-1">{edu.institute}</p>
+
+              <p className="text-sm dark:text-gray-400 text-gray-600 mt-1">
+                {edu.duration} · {edu.status}
+              </p>
+
+              <p className="dark:text-gray-300 text-gray-700 mt-4">
+                {edu.description}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
     </div>
   );
 };
