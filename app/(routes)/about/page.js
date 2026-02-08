@@ -193,8 +193,9 @@ const AboutMe = () => {
   ];
 
   return (
+    <>
     <div className="w-full dark:bg-[#0c101a] bg-gray-150 py-10 px-4 items-center">
-      <div
+       <div
         ref={aboutRef}
         className="max-w-7xl mx-auto dark:bg-[#0c101a] bg-white py-20"
       >
@@ -386,6 +387,7 @@ const AboutMe = () => {
         </div>
       </div>
 
+      {/* MY EXPERIENCE */}
       <section ref={myexref} className="max-w-7xl mx-auto py-20 px-2 lg:px-0">
         {/* Header */}
         <motion.div
@@ -407,8 +409,8 @@ const AboutMe = () => {
           {experiences.map((exp, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -200 : 200 }}
-              animate={experienceRef ? { opacity: 1, x: 0 } : {}}
+              initial={{ opacity: 0, y: index % 2 === 0 ? -200 : 200 }}
+              animate={experienceRef ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8 }}
               className="dark:bg-[#0d1224] bg-gray-50 border dark:border-gray-700 border-gray-300 rounded-xl p-6 md:p-8 hover:shadow-xl transition duration-300"
             >
@@ -444,6 +446,7 @@ const AboutMe = () => {
         </div>
       </section>
 
+      {/*  MY EDUCATION */}
       <motion.div className="max-w-7xl mx-auto py-20">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -458,12 +461,12 @@ const AboutMe = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-600 mx-auto mt-3 rounded-full" />
         </motion.div>
 
-        <div className="space-y-8">
+        <div className="grid lg:grid-cols-2 md:grid-cols-1 gap-4">
           {education.map((edu, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -80 : 80 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: index % 2 === 0 ? -80 : 80 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
               className="dark:bg-[#0d1224] bg-gray-50 border dark:border-gray-700 border-gray-300 rounded-xl p-6 hover:shadow-xl transition"
@@ -485,7 +488,9 @@ const AboutMe = () => {
           ))}
         </div>
       </motion.div>
+
     </div>
+    </>
   );
 };
 
