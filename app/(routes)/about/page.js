@@ -388,7 +388,7 @@ const AboutMe = () => {
       </div>
 
       {/* MY EXPERIENCE */}
-      <section ref={myexref} className="max-w-7xl mx-auto py-20 px-2 lg:px-0">
+      <section ref={myexref} className="max-w-7xl mx-auto pt-15 px-2 lg:px-0">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 200 }}
@@ -447,7 +447,7 @@ const AboutMe = () => {
       </section>
 
       {/*  MY EDUCATION */}
-      <motion.div className="max-w-7xl mx-auto py-20">
+      <motion.div className="max-w-7xl mx-auto pt-15">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
