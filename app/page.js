@@ -23,7 +23,7 @@ export default function Home() {
   const ref = useRef(null);
   const isInView = useInView(ref, {
     once: true,
-    margin: "-50px",
+    margin: "0px",
   });
 
   const aboutRef = useRef(null);
