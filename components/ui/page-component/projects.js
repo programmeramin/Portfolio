@@ -56,11 +56,12 @@ export default function FeaturedProjects() {
           transition={{ duration: 0.8, delay : 0.5 }}
           className="container w-full max-w-4xl mx-auto px-6 text-center mb-12"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-gray-100">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-gray-100 mb-2">
             Featured <span className="text-blue-400">Projects</span>
           </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-600 mx-auto rounded-full"></div>
 
-          <p className="mt-2 sm:mt-4 text-gray-700 dark:text-gray-300 text-md sm:text-lg md:text-xl font-medium leading-relaxed">
+          <p className="text-center text-xl lg:text-2xl md:text-xl dark:text-gray-300 text-gray-900 mb-10">
             Here are some of my recent projects that showcase my skills and
             expertise.
           </p>
@@ -76,7 +77,7 @@ export default function FeaturedProjects() {
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 200 }}
               transition={{ duration: 1, delay: index * 0.2 }}
               key={index}
-              className="dark:bg-[#111827] bg-white  rounded-xl border border-transparent hover:border-blue-400 transition-all 
+              className="dark:bg-[#0c101a] bg-white  rounded-xl border border-transparent hover:border-blue-400 transition-all 
             overflow-hidden flex flex-col transform duration-700 hover:scale-105"
             >
               <img

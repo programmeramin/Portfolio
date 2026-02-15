@@ -40,7 +40,7 @@ export default function Home() {
           initial={{ y: 200 }}
           animate={{ y: 0 }}
           transition={{ duration: 0.8 }}
-          className="max-w-7xl mx-auto lg:mt-30 mt-20"
+          className="max-w-7xl mx-auto lg:mt-10 mt-10"
         >
           {/* Column Layout */}
           <div className="flex flex-col items-center gap-6 justify-center mx-auto">
@@ -82,7 +82,7 @@ export default function Home() {
             </p>
 
             <div className="flex justify-center gap-6">
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mt-6">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 ">
                 <motion.button
                   whileHover={{ rotate: 15, scale: 1.1 }}
                   transition={{ type: "spring", stiffness: 200 }}
@@ -112,9 +112,9 @@ export default function Home() {
       flex items-center justify-center gap-3
       dark:bg-[#080f20]
       bg-white
-      py-2 px-4
+      py-0 px-4
       sm:px-5 sm:py-2.5
-      md:px-6 md:py-3
+      md:px-2 md:py-2
       text-sm sm:text-base md:text-lg
       border border-blue-400
       rounded-2xl
@@ -131,7 +131,7 @@ export default function Home() {
             <motion.div
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 200 }}
-              className="flex items-center gap-5 mt-2 mb-10 text-gray-800 dark:text-gray-200"
+              className="flex items-center gap-5 mt-2 text-gray-800 dark:text-gray-200"
             >
               <Link
                 href="https://linkedin.com/in/programmeramin"
@@ -191,18 +191,16 @@ export default function Home() {
       </div>
 
       {/* About me */}
-      <div ref={aboutRef} className="w-full dark:bg-[#0c101a] bg-white py-20">
-        <div
-          className="max-w-7xl mx-auto grid lg:grid-cols-2 grid-cols-1 px-4 lg:px-0 gap-12 items-center"
-        >
+      <div ref={aboutRef} className="w-full dark:bg-[#0c101a] bg-white py-13">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 grid-cols-1 px-4 lg:px-0 gap-12 items-center mb-5">
           {/* Section Title — CENTER & FULL WIDTH */}
           <motion.div
             initial={{ y: 200, opacity: 0 }}
             animate={aboutInView ? { y: 0, opacity: 1 } : {}}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="lg:col-span-2 text-center mb-8"
+            className="lg:col-span-2 text-center"
           >
-            <h1 className="text-5xl md:text-6xl font-bold dark:text-white text-gray-800 mb-4">
+            <h1 className="text-5xl md:text-6xl font-bold dark:text-white text-gray-800 mb-2">
               About <span className="text-blue-400">Me</span>
             </h1>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-600 mx-auto rounded-full"></div>
@@ -218,7 +216,7 @@ export default function Home() {
             <img
               src="/image/aminislambanner.png"
               alt="Profile"
-              className="rounded-md w-full"
+              className="rounded-md w-full h-full"
             />
           </motion.div>
 
@@ -304,7 +302,7 @@ export default function Home() {
         initial={{ opacity: 0, y: 200 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 200 }}
         transition={{ duration: 0.8, delay: 0.6 }}
-        className="w-full bg-white dark:bg-[#0c101a] py-20 flex flex-col items-center text-center px-4 transition-colors duration-300"
+        className="w-full bg-white dark:bg-[#0c101a] py-13 flex flex-col items-center text-center px-4 transition-colors duration-300"
       >
         {/* Heading */}
         <h1 className="text-black dark:text-white text-3xl md:text-5xl font-bold mb-4">

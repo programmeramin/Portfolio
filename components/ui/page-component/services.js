@@ -26,11 +26,12 @@ export default function MyServices() {
             transition={{ duration: 0.8 }}
             className="text-center mb-12 px-4"
           >
-            <h1 className="text-center text-3xl md:text-4xl font-bold mb-6">
+            <h1 className="text-center text-3xl md:text-4xl font-bold mb-2">
               My {""}
               <span className="text-blue-600 ">Services</span>
             </h1>
-            <p className="text-center text-xl lg:text-2xl md:text-xl dark:text-gray-300 text-gray-900 mb-12">
+             <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-600 mx-auto rounded-full mb-2"></div>
+            <p className="text-center text-xl lg:text-2xl md:text-xl dark:text-gray-300 text-gray-900 mb-10">
               I offer comprehensive web development services to bring your ideas
               to life
             </p>
