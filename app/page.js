@@ -40,7 +40,7 @@ export default function Home() {
           initial={{ y: 200 }}
           animate={{ y: 0 }}
           transition={{ duration: 0.8 }}
-          className="max-w-7xl mx-auto lg:mt-10 mt-10"
+          className="max-w-7xl mx-auto lg:mt-10"
         >
           {/* Column Layout */}
           <div className="flex flex-col items-center gap-6 justify-center mx-auto">
