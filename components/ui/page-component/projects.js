@@ -47,14 +47,14 @@ export default function FeaturedProjects() {
 
   return (
     <>
-      <div className="w-full py-20 dark:bg-[#0c101a] text-white">
-        {/* Heading */}
-        <motion.div
+      <div className="w-full py-17 dark:bg-[#0c101a] text-white">
+      <div className="max-w-7xl mx-auto lg:px-0 px-4">
+         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 200 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 200 }}
           transition={{ duration: 0.8, delay : 0.5 }}
-          className="container w-full max-w-4xl mx-auto px-6 text-center mb-12"
+          className="mx-auto px-6 text-center mb-12"
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-gray-100 mb-2">
             Featured <span className="text-blue-400">Projects</span>
@@ -67,8 +67,8 @@ export default function FeaturedProjects() {
           </p>
         </motion.div>
 
-        {/* Project Cards */}
-        <div ref={ref}  className="grid lg:grid-cols-2 md:grid-cols-1 gap-6 px-4">
+        
+        <div ref={ref}  className="grid lg:grid-cols-2 md:grid-cols-1 gap-6">
           {projects.map((item, index) => (
             <motion.div
               key={index}
@@ -81,8 +81,8 @@ export default function FeaturedProjects() {
             overflow-hidden flex flex-col transform duration-700 hover:scale-105"
             >
               <img
-                src={item.image}
-                alt={item.title}
+                src={item?.image}
+                alt={item?.title}
                 className="w-full h-48 transform duration-800 hover:scale-115"
               />
               <div className="p-6 rounded-xl bg-white dark:bg-[#1F2937] shadow-md dark:shadow-lg transition-colors duration-300">
@@ -114,7 +114,7 @@ export default function FeaturedProjects() {
           ))}
         </div>
 
-        {/* View All Button */}
+      
         <div className="text-center mt-12">
           <a
               href="/projects"
@@ -133,6 +133,7 @@ export default function FeaturedProjects() {
               </span>
             </a>
         </div>
+       </div>
       </div>
     </>
   );

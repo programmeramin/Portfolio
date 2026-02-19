@@ -40,7 +40,7 @@ export default function Home() {
           initial={{ y: 200 }}
           animate={{ y: 0 }}
           transition={{ duration: 0.8 }}
-          className="max-w-7xl mx-auto lg:mt-10"
+          className="max-w-7xl mx-auto"
         >
           {/* Column Layout */}
           <div className="flex flex-col items-center gap-6 justify-center mx-auto">
@@ -191,7 +191,7 @@ export default function Home() {
       </div>
 
       {/* About me */}
-      <div ref={aboutRef} className="w-full dark:bg-[#0c101a] bg-white py-13">
+      <div ref={aboutRef} className="w-full dark:bg-[#0c101a] bg-white mb-13">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 grid-cols-1 px-4 lg:px-0 gap-12 items-center mb-5">
           {/* Section Title — CENTER & FULL WIDTH */}
           <motion.div

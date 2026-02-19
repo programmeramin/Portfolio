@@ -94,9 +94,9 @@ export default function TechStack() {
           initial={{ opacity: 0, y: 200 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 200 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center mb-12"
+          className=" text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-1">
+          <h2 className="mx-auto text-3xl md:text-4xl lg:text-5xl font-bold mb-1 text-slate-900 dark:text-slate-100">
             Tech <span className="text-blue-400">Stack</span>
           </h2>
 
