@@ -44,7 +44,7 @@ export default function Home() {
         >
           {/* Column Layout */}
           <div className="flex flex-col items-center gap-6 justify-center mx-auto">
-            <button className="px-6 py-3  self-center dark:bg-[#091c4d] dark:text-amber-100 bg-gray-200 rounded-full outline-none">
+            <button className="px-6 py-3 lg:mt-8 mt-0  self-center dark:bg-[#091c4d] dark:text-amber-100 bg-gray-200 rounded-full outline-none">
               ✨ Enter My World of Innovation
             </button>
 
@@ -83,48 +83,69 @@ export default function Home() {
 
             <div className="flex justify-center gap-6">
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 ">
-                <motion.button
-                  whileHover={{ rotate: 15, scale: 1.1 }}
-                  transition={{ type: "spring", stiffness: 200 }}
+                <button
                   className="
-      flex items-center justify-center
-      text-white gap-3
-      bg-gradient-to-r from-indigo-700 via-purple-700 to-pink-600
-      hover:from-indigo-800 hover:via-purple-900 hover:to-pink-800
-      px-4 py-2
-      sm:px-5 sm:py-2.5
-      md:px-6 md:py-3
-      text-sm sm:text-base md:text-lg
-      rounded-md
-      transform transition duration-500
-      outline-none border border-blue-500
-      w-full sm:w-auto cursor-pointer
-    "
+    inline-flex items-center justify-center gap-2
+    bg-gradient-to-r from-indigo-600 to-purple-600
+    hover:from-indigo-700 hover:to-purple-700
+    text-white font-medium
+    px-6 py-3
+    rounded-md
+    shadow-md hover:shadow-xl
+    transition-all duration-300 ease-in-out
+    focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2
+    active:scale-95
+    w-full sm:w-auto
+  "
                 >
-                  <FaArrowDown size={18} className="sm:size-[20px]" />
-                  View My Work
-                </motion.button>
+                  <Link
+                    href="/projects"
+                    className="flex flex-row gap-2 items-center"
+                  >
+                    <FaArrowDown size={18} />
+                    View My Work
+                  </Link>
+                </button>
 
-                <motion.button
-                  whileHover={{ rotate: 1, scale: 1.1 }}
-                  transition={{ type: "spring", stiffness: 120 }}
+                <button
                   className="
       flex items-center justify-center gap-3
       dark:bg-[#080f20]
       bg-white
-      py-0 px-4
+      py-2.5 px-4
       sm:px-5 sm:py-2.5
       md:px-2 md:py-2
       text-sm sm:text-base md:text-lg
-      border border-blue-400
-      rounded-2xl
+      rounded-md
       cursor-pointer outline-none
       w-full sm:w-auto
     "
                 >
-                  <FaArrowRightLong />
-                  Download CV
-                </motion.button>
+                  <Link
+  href="/cv.pdf"
+  target="_blank"
+  download
+  className="
+    inline-flex items-center justify-center gap-2
+    bg-white dark:bg-[#0f172a]
+    text-gray-800 dark:text-white
+    px-6 py-3
+    text-sm sm:text-base
+    font-medium
+    border border-gray-300 dark:border-gray-700
+    rounded-xl
+    shadow-sm hover:shadow-md
+    hover:bg-gray-50 dark:hover:bg-[#1e293b]
+    transition-all duration-300 ease-in-out
+    active:scale-95
+    focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2
+    w-full sm:w-auto
+  "
+>
+  Download CV
+  <FaArrowRightLong size={16} />
+</Link>
+                </button>
               </div>
             </div>
 
@@ -262,21 +283,7 @@ export default function Home() {
               ))}
             </div>
 
-            <div className="flex justify-center lg:justify-start">
-              <a
-                href="/about"
-                className="group inline-flex items-center gap-3
-          px-6 py-3 rounded-md
-          text-sm md:text-base font-medium text-white
-          bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600
-          transition-all duration-500 hover:scale-105"
-              >
-                Learn More About Me
-                <span className="group-hover:translate-x-1 transition-transform">
-                  →
-                </span>
-              </a>
-            </div>
+           
           </motion.div>
         </div>
       </div>
@@ -287,8 +294,26 @@ export default function Home() {
         <TechStack />
       </div>
 
-      <div>
+      <div className="py-15">
         <FeaturedProjects />
+        <div className="text-center mt-12">
+          <Link
+              href="/projects"
+              className="group inline-flex items-center gap-3
+             px-6 py-3 rounded-md
+             text-sm md:text-base font-medium text-white
+             bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600
+             border border-indigo-500/40
+             shadow-md hover:shadow-xl
+             transition-all duration-500
+             hover:scale-105 hover:-translate-y-0.5"
+            >
+              View all projects
+              <span className="transition-transform duration-500 group-hover:translate-x-1">
+                →
+              </span>
+            </Link>
+        </div>
       </div>
 
       <div>

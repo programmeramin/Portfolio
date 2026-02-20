@@ -23,7 +23,7 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 w-full bg-gray-150 dark:bg-[#0c101a] backdrop-blur-md z-50 dark:border-gray-500 shadow-sm transition-colors duration-300">
       <div className="relative max-w-7xl mx-auto px-4 md:px-0 lg:px-0">
-        <div className="flex justify-between items-center h-15">
+        <div className="flex justify-between items-center h-17">
           {/* Logo */}
           <Link
             href="/"
@@ -35,7 +35,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center lg:space-x-8 md:space-x-3 font-semibold text-gray-700 dark:text-gray-200">
+          <div className="hidden md:flex items-center lg:space-x-8 md:space-x-3 font-semibold text-gray-700 dark:text-gray-200 text-md">
             {["/", "/about", "/projects", "/services", "/blog", "/contact"].map(
               (link, idx) => {
                 const name =

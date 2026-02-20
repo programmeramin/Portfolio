@@ -1,6 +1,7 @@
 "use client";
 
 import { useInView, motion } from "framer-motion";
+import Link from "next/link";
 import { useRef } from "react";
 import { FaArrowRight } from "react-icons/fa";
 
@@ -37,6 +38,13 @@ export default function FeaturedProjects() {
       desc: "A dynamic business news portal providing real-time updates and financial insights with CMS integration.",
       tags: ["Next.js", "Tailwind", "Server Actions", "Zod", "React Hook Form"],
     },
+    {
+      image:
+        "https://www.shutterstock.com/image-photo/new-email-notification-concept-business-260nw-2460973799.jpg",
+      title: "Business Mail USA (News Portal)",
+      desc: "A dynamic business news portal providing real-time updates and financial insights with CMS integration.",
+      tags: ["Next.js", "Tailwind", "Server Actions", "Zod", "React Hook Form"],
+    },
   ];
 
   const ref = useRef(null);
@@ -47,7 +55,7 @@ export default function FeaturedProjects() {
 
   return (
     <>
-      <div className="w-full py-17 dark:bg-[#0c101a] text-white">
+      <div className="w-full dark:bg-[#0c101a] text-white">
       <div className="max-w-7xl mx-auto lg:px-0 px-4">
          <motion.div
           ref={ref}
@@ -61,7 +69,7 @@ export default function FeaturedProjects() {
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-600 mx-auto rounded-full"></div>
 
-          <p className="text-center text-xl lg:text-2xl md:text-xl dark:text-gray-300 text-gray-900 mb-10">
+          <p className="text-center text-xl lg:text-2xl md:text-xl dark:text-gray-300 mt-2 text-gray-900 mb-10">
             Here are some of my recent projects that showcase my skills and
             expertise.
           </p>
@@ -115,24 +123,7 @@ export default function FeaturedProjects() {
         </div>
 
       
-        <div className="text-center mt-12">
-          <a
-              href="/projects"
-              className="group inline-flex items-center gap-3
-             px-6 py-3 rounded-md
-             text-sm md:text-base font-medium text-white
-             bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600
-             border border-indigo-500/40
-             shadow-md hover:shadow-xl
-             transition-all duration-500
-             hover:scale-105 hover:-translate-y-0.5"
-            >
-              View all projects
-              <span className="transition-transform duration-500 group-hover:translate-x-1">
-                →
-              </span>
-            </a>
-        </div>
+        
        </div>
       </div>
     </>
